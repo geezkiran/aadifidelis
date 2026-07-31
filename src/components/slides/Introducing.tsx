@@ -11,9 +11,9 @@ export function CompetitionAlreadySlide() {
       <HeadingBlock
         size="xl"
         gradient
-        className="flex max-w-4xl flex-col flex-wrap items-center justify-center gap-y-2 text-center"
+        className="flex max-w-4xl flex-col flex-wrap items-center justify-center gap-y-2 text-center md:flex-row md:gap-x-5 md:gap-y-0"
       >
-        <span className="text-black text-2xl sm:text-2xl md:text-3xl lg:text-4xl">Introducing</span>
+        <span className="text-black text-3xl sm:text-3xl md:text-4xl lg:text-7xl">Introducing</span>
         <Image
           src="/images/aarthilife-logo.png"
           alt="AarthiLife"

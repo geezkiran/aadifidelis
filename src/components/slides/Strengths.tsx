@@ -17,7 +17,7 @@ export function StrengthsSlide() {
       <div className="flex flex-col gap-3 md:gap-10">
         <SlideLead className="max-w-5xl">
 
-          <HeadingBlock size="lg" className="text-foreground text-3xl">
+          <HeadingBlock size="xl" className="text-foreground text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem]">
             Where Aarthi Labs Stand Today
           </HeadingBlock>
         </SlideLead>
