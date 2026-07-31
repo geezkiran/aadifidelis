@@ -128,7 +128,10 @@ export function CircularStepFlow({
   return (
     <div
       ref={containerRef}
-      className={cn("relative mx-auto aspect-square w-80 sm:w-[26rem]", className)}
+      className={cn(
+        "relative mx-auto aspect-square w-full max-w-64 sm:max-w-80 md:w-[26rem] md:max-w-none",
+        className
+      )}
     >
       <div
         className={cn(
@@ -165,7 +168,7 @@ export function CircularStepFlow({
           >
             <div
               className={cn(
-                "flex w-max max-w-[7rem] items-center gap-1.5 rounded-full border-2 bg-surface px-2 py-1 transition-colors duration-500 sm:max-w-[8.5rem]",
+                "flex w-max max-w-20 items-center gap-1.5 rounded-full border-2 bg-surface px-2 py-1 transition-colors duration-500 sm:max-w-28 md:max-w-[8.5rem]",
                 isDone || isCurrent
                   ? "border-emerald-500"
                   : accent
@@ -240,7 +243,7 @@ export function StepFlow({
                 className={cn(
                   "ml-4 text-base leading-snug transition-colors duration-500 sm:text-lg",
                   isActiveOrDone ? "text-foreground" : "text-muted",
-                  !isLast && "pb-16"
+                  !isLast && "pb-5 sm:pb-16"
                 )}
               >
                 {step}

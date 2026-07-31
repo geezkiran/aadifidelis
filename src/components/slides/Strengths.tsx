@@ -14,22 +14,22 @@ const STRENGTHS = [
 export function StrengthsSlide() {
   return (
     <Slide id="strengths" variant="muted" contentClassName="justify-center">
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-3 md:gap-10">
         <SlideLead className="max-w-5xl">
-         
-          <HeadingBlock size="xl" className="text-foreground">
-            Where Aarthi Labs Stands Today
+
+          <HeadingBlock size="lg" className="text-foreground text-3xl">
+            Where Aarthi Labs Stand Today
           </HeadingBlock>
         </SlideLead>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 sm:gap-4">
           {STRENGTHS.map((item) => (
             <div
               key={item}
-              className="flex min-h-0 min-w-0 items-center gap-3 rounded-[16px] border border-surface-border bg-surface-elevated p-6 shadow-[var(--shadow-soft)]"
+              className="flex min-h-0 min-w-0 items-center gap-2 rounded-[12px] border border-surface-border bg-surface-elevated p-2.5 shadow-[var(--shadow-soft)] sm:gap-3 sm:rounded-[16px] sm:p-6"
             >
-              <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
-              <p className="text-lg font-medium leading-snug text-foreground">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent sm:h-2 sm:w-2" />
+              <p className="text-xs font-medium leading-snug text-foreground sm:text-lg">
                 {item}
               </p>
             </div>

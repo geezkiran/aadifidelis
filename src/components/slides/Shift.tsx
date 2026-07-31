@@ -51,13 +51,13 @@ export function ShiftSlide() {
         <SlideLead className="max-w-5xl">
           <HeadingBlock
             size="xl"
-            className="text-foreground text-[4.1875rem] leading-[0.98]"
+            className="text-foreground text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-[4.1875rem] lg:leading-[0.98]"
           >
-            A patient-first experience,<br /> organised around four questions.
+            A patient-first experience,<br className="hidden md:block" /> organised around four questions.
           </HeadingBlock>
         </SlideLead>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 sm:gap-4">
           {QUESTIONS.map(({ q, a }, i) => {
             const open = openIndex === i;
             return (
@@ -72,9 +72,9 @@ export function ShiftSlide() {
                   type="button"
                   onClick={() => setOpenIndex(open ? -1 : i)}
                   aria-expanded={open}
-                  className="flex w-full items-center gap-3 px-7 py-5 text-left"
+                  className="flex w-full items-center gap-3 px-4 py-4 text-left sm:px-7 sm:py-5"
                 >
-                  <span className="flex-1 text-[1.75rem] font-semibold tracking-[-0.02em] text-foreground">
+                  <span className="flex-1 text-lg font-semibold tracking-[-0.02em] text-foreground sm:text-2xl md:text-[1.75rem]">
                     {q}
                   </span>
                   <ChevronIcon open={open} />
@@ -86,7 +86,7 @@ export function ShiftSlide() {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-7 pb-5 text-lg font-medium leading-snug text-muted">
+                    <p className="px-4 pb-4 text-sm font-medium leading-snug text-muted sm:px-7 sm:pb-5 sm:text-lg">
                       {a}
                     </p>
                   </div>

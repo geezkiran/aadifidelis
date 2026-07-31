@@ -93,7 +93,7 @@ function FlywheelCircle() {
   const textR = 60;
 
   return (
-    <div className="relative mx-auto aspect-square h-[min(64dvh,540px)]">
+    <div className="relative mx-auto hidden aspect-square h-[min(64dvh,540px)] md:block">
       <div
         className="absolute rounded-full border border-dashed border-accent/30"
         style={{ inset: `${50 - iconR}%` }}
@@ -142,11 +142,43 @@ function FlywheelCircle() {
   );
 }
 
+/** Stacked list used below md, where the radial layout has no room to breathe. */
+function FlywheelList() {
+  return (
+    <div className="flex w-full flex-col gap-6 md:hidden">
+      <h2 className="text-center text-3xl font-semibold leading-[1.08] tracking-[-0.025em] text-primary sm:text-4xl">
+        Growth Flywheel
+      </h2>
+      <div className="flex flex-col gap-3">
+        {pillars.map((pillar) => (
+          <div
+            key={pillar.id}
+            className="flex items-start gap-3 rounded-[16px] border border-surface-border bg-surface-elevated p-4 shadow-[var(--shadow-soft)]"
+          >
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-accent bg-background text-accent">
+              <PillarIcon variant={pillar.icon} />
+            </span>
+            <div className="flex flex-col gap-1">
+              <h3 className="text-sm font-semibold leading-tight tracking-[-0.01em] text-primary">
+                {pillar.title}
+              </h3>
+              <p className="text-xs leading-relaxed text-muted">
+                {pillar.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function BusinessModelSlide() {
   return (
     <Slide id="proposed-changes" variant="muted" contentClassName="min-h-0 items-center justify-center">
-      <SlideBody className="flex min-h-0 flex-1 items-center justify-center">
+      <SlideBody className="flex min-h-0 w-full flex-1 items-center justify-center">
         <FlywheelCircle />
+        <FlywheelList />
       </SlideBody>
     </Slide>
   );

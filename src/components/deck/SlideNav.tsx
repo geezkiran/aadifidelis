@@ -67,7 +67,7 @@ export function SlideNav({ labels, activeIndex, onNavigate }: SlideNavProps) {
             {labels.map((label, index) => (
               <div
                 key={label}
-                className="flex shrink-0 items-center justify-center"
+                className="relative flex h-11 shrink-0 items-center justify-center md:h-9"
                 style={{ width: SLOT_WIDTH }}
               >
                 <button
@@ -75,13 +75,17 @@ export function SlideNav({ labels, activeIndex, onNavigate }: SlideNavProps) {
                   aria-label={`Go to slide ${index + 1}: ${label}`}
                   aria-current={activeIndex === index ? "step" : undefined}
                   onClick={() => onNavigate(index)}
-                  className={cn(
-                    "deck-nav-dot rounded-full",
-                    activeIndex === index
-                      ? "h-1.5 w-3 bg-foreground/85"
-                      : "h-1.5 w-1.5 bg-foreground/20 hover:bg-foreground/35"
-                  )}
-                />
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <span
+                    className={cn(
+                      "deck-nav-dot rounded-full",
+                      activeIndex === index
+                        ? "h-1.5 w-3 bg-foreground/85"
+                        : "h-1.5 w-1.5 bg-foreground/20 hover:bg-foreground/35"
+                    )}
+                  />
+                </button>
               </div>
             ))}
           </div>

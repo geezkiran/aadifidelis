@@ -5,11 +5,11 @@ export function CompetitiveSlide() {
     <Slide
       id="competitive-landscape"
       className="pt-16"
-      contentClassName="gap-14 md:gap-20"
+      contentClassName="justify-start gap-6 md:gap-20"
       centerContent={false}
-      footerClassName="pt-1 md:pt-1.5"
+      footerClassName="pt-4 md:pt-1.5"
       footer={
-        <p className="text-left text-sm font-medium text-blue-400 break-all">
+        <p className="text-left text-[10px] font-medium text-blue-400 break-all sm:text-sm">
           [
           <a
             href="https://www.metropolisindia.com/newdata/investors/data/submission_to_stock_exchange/fy2024-2025/q2/se_intimation_-_investor_presentation.pdf"
@@ -24,14 +24,15 @@ export function CompetitiveSlide() {
       }
     >
       <SlideBody className="mt-0">
-        <HeadingBlock size="xl" className="text-left">
+        <HeadingBlock size="xl" className="text-left text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem]">
           <span className="text-black">TruHealth</span>{" "}
           <span className="text-neutral-300">by Metropolis</span>
         </HeadingBlock>
       </SlideBody>
 
-      <div className="grid h-80 grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 items-start gap-2 sm:gap-4 md:grid-cols-3 md:h-80 md:items-stretch">
         <ProgressGaugeCard
+          className="col-span-2 mx-auto w-full max-w-[calc(50%-0.25rem)] sm:max-w-[calc(50%-0.5rem)] md:col-span-1 md:max-w-none"
           value={23}
           status="TruHealth revenue growth"
           detail="YoY, Q2 FY25"

@@ -10,7 +10,7 @@ export function StatementSlide() {
       <HeadingBlock
         size="xl"
         gradient
-        className="max-w-8xl text-center text-[4.3125rem] leading-[1.15]"
+        className="max-w-8xl text-center text-4xl leading-[1.15] sm:text-5xl md:text-6xl lg:text-[4.3125rem]"
       >
         Diagnostics is becoming more than just a{" "}
         <span className="mx-1 inline-flex items-center gap-2 rounded-full border border-accent/40 px-3 align-middle leading-none text-accent">

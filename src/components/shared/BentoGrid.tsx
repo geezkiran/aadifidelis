@@ -21,7 +21,7 @@ export function BentoGrid({ items = DEFAULT_ITEMS, className }: BentoGridProps) 
   return (
     <div
       className={cn(
-        "grid h-full w-full grid-cols-5 grid-rows-5 gap-3 md:gap-4",
+        "grid h-full w-full grid-cols-1 grid-rows-none gap-3 md:grid-cols-5 md:grid-rows-5 md:gap-4",
         className
       )}
     >
@@ -29,7 +29,7 @@ export function BentoGrid({ items = DEFAULT_ITEMS, className }: BentoGridProps) 
         <div
           key={item.id}
           className={cn(
-            "min-h-0 min-w-0 rounded-[16px] bg-black/[0.05]",
+            "min-h-0 min-w-0 rounded-[16px] bg-black/[0.05] md:col-span-1 md:row-span-1",
             item.className
           )}
         >

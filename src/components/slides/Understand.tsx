@@ -4,13 +4,13 @@ import { HeadingBlock, Slide, SlideLead } from "@/components/shared";
 export function AppIntroSlide4() {
   return (
     <Slide id="app-intro-4" variant="gradient">
-      <div className="flex flex-row-reverse items-center justify-center gap-28">
-        <SlideLead className="max-w-xl text-left">
-          <HeadingBlock as="h2" size="xl" className="text-foreground">
+      <div className="flex flex-col items-center justify-center gap-6 md:flex-row-reverse md:gap-28">
+        <SlideLead className="max-w-xl text-center md:text-left">
+          <HeadingBlock as="h2" size="xl" className="text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           Results that finally make sense.
           </HeadingBlock>
         </SlideLead>
-        <div className="relative aspect-[9/19] w-72 shrink-0">
+        <div className="relative aspect-[9/19] w-40 shrink-0 sm:w-48 md:w-72">
           <Image
             src="/images/report.png"
             alt="AarthiLife app"

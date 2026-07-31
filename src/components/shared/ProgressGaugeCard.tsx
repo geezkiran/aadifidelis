@@ -205,50 +205,52 @@ export function ProgressGaugeCard({
       <article
         ref={cardRef}
         className={cn(
-          "deck-card flex min-h-0 w-full flex-1 flex-col rounded-[16px] p-5",
+          "deck-card flex min-h-0 w-full flex-1 flex-col rounded-[16px] p-3 sm:p-5",
           className
         )}
       >
-        <div className="relative mx-auto flex min-h-0 w-full max-w-[240px] flex-1 flex-col items-center justify-center py-2">
-          <svg
-            viewBox={`0 0 ${SIZE} ${SIZE * 0.72}`}
-            className="block h-auto w-full max-h-full"
-            role="img"
-            aria-label={`${clamped}% complete`}
-          >
-            <path
-              d={arcPath()}
-              fill="none"
-              stroke="#e8e8ed"
-              strokeWidth={STROKE}
-              strokeLinecap="round"
-            />
-            <path
-              ref={arcRef}
-              d={arcPath()}
-              fill="none"
-              stroke={`url(#${gradientId})`}
-              strokeWidth={STROKE}
-              strokeLinecap="round"
-              className="deck-gauge-arc"
-            />
-            <defs>
-              <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#5ac8fa" />
-                <stop offset="100%" stopColor="#0071e3" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <div className="absolute inset-x-0 bottom-[16%] flex flex-col items-center gap-0.5 text-center">
-            <p className="text-3xl font-semibold tracking-[-0.03em] text-foreground">
+        <div className="relative mx-auto flex min-h-0 w-full max-w-[240px] flex-1 flex-col items-center justify-center gap-0.5 py-1 sm:gap-1 sm:py-2">
+          <div className="relative w-full shrink-0 basis-[42%] sm:basis-[55%]">
+            <svg
+              viewBox={`0 0 ${SIZE} ${SIZE * 0.72}`}
+              className="block h-auto w-full max-h-full"
+              role="img"
+              aria-label={`${clamped}% complete`}
+            >
+              <path
+                d={arcPath()}
+                fill="none"
+                stroke="#e8e8ed"
+                strokeWidth={STROKE}
+                strokeLinecap="round"
+              />
+              <path
+                ref={arcRef}
+                d={arcPath()}
+                fill="none"
+                stroke={`url(#${gradientId})`}
+                strokeWidth={STROKE}
+                strokeLinecap="round"
+                className="deck-gauge-arc"
+              />
+              <defs>
+                <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#5ac8fa" />
+                  <stop offset="100%" stopColor="#0071e3" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <p className="absolute inset-x-0 top-[48%] text-center text-xl font-semibold tracking-[-0.03em] text-foreground sm:text-3xl">
               {clamped}%
             </p>
-            <p className="text-xs font-medium leading-tight text-foreground/80">
+          </div>
+
+          <div className="flex w-full shrink-0 flex-col items-center gap-0.5 text-center">
+            <p className="text-[10px] font-medium leading-tight text-foreground/80 sm:text-xs">
               {status}
             </p>
             {detail && (
-              <p className="text-[11px] font-medium leading-tight text-muted">
+              <p className="hidden text-[10px] font-medium leading-tight text-muted sm:block sm:text-[11px]">
                 {detail}
               </p>
             )}
@@ -256,13 +258,13 @@ export function ProgressGaugeCard({
         </div>
 
         {reportDetails?.bullets?.[0] && (
-          <p className="mx-auto mt-2 max-w-[15rem] text-center text-[11px] font-medium leading-snug text-muted">
+          <p className="mx-auto mt-1 hidden max-w-[15rem] text-center text-[11px] font-medium leading-snug text-muted sm:mt-2 sm:block">
             {reportDetails.bullets[0]}
           </p>
         )}
 
         {actionLabel && (
-          <div className="mt-auto flex shrink-0 justify-center pt-2">
+          <div className="mt-auto flex shrink-0 justify-center pt-1 sm:pt-2">
             {reportDetails ? (
               <button
                 type="button"

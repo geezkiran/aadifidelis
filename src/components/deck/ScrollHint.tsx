@@ -9,7 +9,7 @@ export function ScrollHint({ visible = false }: ScrollHintProps) {
     <div
       className={cn(
         "deck-scroll-hint pointer-events-none fixed inset-x-0 z-40 flex flex-col items-center justify-center gap-1",
-        "bottom-[4.5rem] transition-opacity duration-500 md:bottom-[5rem]",
+        "bottom-16 transition-opacity duration-500 md:bottom-20",
         visible ? "opacity-100" : "opacity-0"
       )}
       aria-hidden={!visible}

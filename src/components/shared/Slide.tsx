@@ -46,7 +46,7 @@ export function Slide({
       {footer && pinFooter ? (
         <div
           className={cn(
-            "absolute inset-x-6 bottom-11 md:inset-x-20 md:bottom-12",
+            "absolute inset-x-6 bottom-20 md:inset-x-20 md:bottom-12",
             footerClassName
           )}
         >
