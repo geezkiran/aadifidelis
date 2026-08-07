@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ScrollIndicator } from "./ScrollIndicator";
 
 interface DeckContainerProps {
   children: React.ReactNode;
@@ -9,11 +10,16 @@ interface DeckContainerProps {
   slideLabels?: string[];
 }
 
-export function DeckContainer({ children, slideCount }: DeckContainerProps) {
+export function DeckContainer({
+  children,
+  slideCount,
+  slideLabels,
+}: DeckContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const activeIndexRef = useRef(0);
   const scrollEndTimerRef = useRef<number | null>(null);
-  const [, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const getSlides = useCallback(() => {
     const container = containerRef.current;
@@ -40,15 +46,35 @@ export function DeckContainer({ children, slideCount }: DeckContainerProps) {
     const viewportCenter = container.scrollTop + container.clientHeight / 2;
     let closestIndex = 0;
     let closestDistance = Infinity;
+    let continuous = 0;
 
-    slides.forEach((slide, index) => {
+    for (let i = 0; i < slides.length; i++) {
+      const slide = slides[i];
       const slideCenter = slide.offsetTop + slide.offsetHeight / 2;
       const distance = Math.abs(slideCenter - viewportCenter);
+
       if (distance < closestDistance) {
         closestDistance = distance;
-        closestIndex = index;
+        closestIndex = i;
       }
-    });
+
+      if (viewportCenter <= slideCenter) {
+        if (i === 0) {
+          continuous = 0;
+        } else {
+          const prev = slides[i - 1];
+          const prevCenter = prev.offsetTop + prev.offsetHeight / 2;
+          const span = slideCenter - prevCenter || 1;
+          const t = (viewportCenter - prevCenter) / span;
+          continuous = i - 1 + Math.max(0, Math.min(1, t));
+        }
+        break;
+      }
+
+      continuous = i;
+    }
+
+    setProgress(continuous);
 
     if (closestIndex !== activeIndexRef.current) {
       activeIndexRef.current = closestIndex;
@@ -65,6 +91,7 @@ export function DeckContainer({ children, slideCount }: DeckContainerProps) {
 
       activeIndexRef.current = index;
       setActiveIndex(index);
+      setProgress(index);
       setSlideActiveStates(index);
       slide.scrollIntoView({ behavior: "smooth", block: "start" });
     },
@@ -138,15 +165,29 @@ export function DeckContainer({ children, slideCount }: DeckContainerProps) {
   }, [getSlides, scrollToSlide]);
 
   return (
-    <div className="relative h-dvh">
+    <div className="relative flex h-dvh">
       <div
         ref={containerRef}
         className={cn(
-          "deck-scroll flex h-dvh snap-y snap-mandatory flex-col items-center overflow-y-auto overflow-x-hidden"
+          "deck-scroll flex h-dvh min-w-0 flex-1 flex-col items-center overflow-y-auto overflow-x-hidden snap-y snap-mandatory"
         )}
       >
         {children}
       </div>
+
+      <aside className="relative z-40 flex h-dvh w-[48px] shrink-0 items-center justify-center border-l border-border bg-background md:w-[64px]">
+        <ScrollIndicator
+          count={slideCount}
+          progress={progress}
+          labels={slideLabels}
+          onNavigate={scrollToSlide}
+        />
+      </aside>
+
+      <span className="sr-only" aria-live="polite">
+        Slide {activeIndex + 1} of {slideCount}
+        {slideLabels?.[activeIndex] ? `: ${slideLabels[activeIndex]}` : ""}
+      </span>
     </div>
   );
 }

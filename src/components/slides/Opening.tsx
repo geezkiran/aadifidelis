@@ -6,7 +6,6 @@ import {
   FlowArrow,
   FlowNode,
   Slide,
-  SlideFooter,
   SlideTitle,
 } from "@/components/shared";
 
@@ -29,10 +28,10 @@ export function TitleSlide() {
       <div className="flex flex-col items-center gap-[28px] md:gap-[36px]">
         <h1>
           <Image
-            src="/images/aadifidelis-logo-dark.png"
-            alt="Aadifidelis Solutions Pvt. Ltd."
+            src="/images/aadifidelis-wordmark.png"
+            alt="Aadifidelis"
             width={793}
-            height={217}
+            height={115}
             className="h-auto w-[260px] md:w-[400px]"
             priority
           />
@@ -48,7 +47,7 @@ export function TitleSlide() {
 
 export function ScaleSlide() {
   return (
-    <Slide id="scale" footer={<SlideFooter n={2} />}>
+    <Slide id="scale">
       <div className="flex flex-col gap-[36px] md:gap-[48px]">
         <SlideTitle>
           A business that has scaled faster than most infrastructure can keep pace with
@@ -71,7 +70,7 @@ export function ScaleSlide() {
 
 export function MarginSlide() {
   return (
-    <Slide id="margin" footer={<SlideFooter n={3} />}>
+    <Slide id="margin">
       <div className="flex flex-col gap-[36px] md:gap-[48px]">
         <SlideTitle>
           In a high-volume, thin-margin model, value concentrates after origination
@@ -117,10 +116,9 @@ export function ValueAtStakeSlide() {
   ];
 
   return (
-    <Slide id="value-at-stake" footer={<SlideFooter n={4} />}>
+    <Slide id="value-at-stake">
       <div className="flex flex-col gap-[24px] md:gap-[32px]">
         <SlideTitle>The value at stake, on your own data</SlideTitle>
-        <div className="h-px w-full bg-border" />
         <div className="grid grid-cols-1 md:grid-cols-2">
           {cells.map((cell, i) => (
             <div
@@ -152,7 +150,7 @@ export function ValueAtStakeSlide() {
 
 export function ExceptionsSlide() {
   return (
-    <Slide id="exceptions" footer={<SlideFooter n={5} />}>
+    <Slide id="exceptions">
       <div className="flex flex-col gap-[36px] md:gap-[48px]">
         <SlideTitle>
           At this scale, you need a system that acts on exceptions — not just one that
@@ -191,7 +189,7 @@ export function LifecycleSlide() {
   const money = ["Commission receivable", "Reconciled", "Partner payout", "Paid"];
 
   return (
-    <Slide id="lifecycle" footer={<SlideFooter n={6} />}>
+    <Slide id="lifecycle">
       <div className="flex flex-col gap-[28px] md:gap-[36px]">
         <SlideTitle>The full lifecycle, managed as one continuous object</SlideTitle>
 
@@ -201,7 +199,7 @@ export function LifecycleSlide() {
           </p>
           <div className="flex items-stretch overflow-x-auto pb-[4px]">
             {sales.map((node, i) => (
-              <div key={node} className="flex min-w-0 flex-1 items-center">
+              <div key={node} className="flex shrink-0 items-center">
                 <FlowNode label={node} />
                 {i < sales.length - 1 ? <FlowArrow /> : null}
               </div>
@@ -215,7 +213,7 @@ export function LifecycleSlide() {
           </p>
           <div className="flex items-stretch overflow-x-auto pb-[4px]">
             {money.map((node, i) => (
-              <div key={node} className="flex min-w-0 flex-1 items-center">
+              <div key={node} className="flex shrink-0 items-center">
                 <FlowNode label={node} accent />
                 {i < money.length - 1 ? <FlowArrow accent /> : null}
               </div>

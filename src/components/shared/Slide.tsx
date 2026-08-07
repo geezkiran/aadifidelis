@@ -28,7 +28,7 @@ export function Slide({
       id={id}
       data-slide
       className={cn(
-        "relative flex h-dvh w-full shrink-0 snap-start snap-always flex-col overflow-hidden",
+        "relative flex h-full min-h-full w-full shrink-0 snap-start snap-always flex-col overflow-hidden",
         dark ? "bg-surface-dark text-white" : "bg-background text-foreground",
         className
       )}
@@ -40,7 +40,7 @@ export function Slide({
       ) : null}
       <div
         className={cn(
-          "slide-content slide-shell flex min-h-0 flex-1 flex-col justify-center py-[48px] md:py-[64px]",
+          "slide-content slide-shell flex min-h-0 flex-1 flex-col justify-center py-[40px] md:py-[56px]",
           contentClassName
         )}
       >
@@ -49,7 +49,7 @@ export function Slide({
       {footer ? (
         <div
           className={cn(
-            "slide-shell absolute inset-x-0 bottom-[24px] md:bottom-[32px]",
+            "slide-shell absolute inset-x-0 bottom-[16px] md:bottom-[20px]",
             dark ? "text-white/35" : "text-muted-soft"
           )}
         >
@@ -57,15 +57,6 @@ export function Slide({
         </div>
       ) : null}
     </section>
-  );
-}
-
-export function SlideFooter({ n, className }: { n?: number; className?: string }) {
-  return (
-    <p className={cn("text-[11px] tracking-[0.01em] md:text-[12px]", className)}>
-      {n != null ? `${n} · ` : ""}
-      Aadifidelis × TwoSpoon 
-    </p>
   );
 }
 
@@ -79,7 +70,7 @@ export function SlideTitle({
   return (
     <h2
       className={cn(
-        "max-w-[820px] text-[28px] font-medium leading-[1.12] tracking-[-0.03em] md:text-[40px]",
+        "max-w-[640px] text-[28px] font-medium leading-[1.2] tracking-[-0.03em] md:text-[40px]",
         className
       )}
     >
@@ -132,27 +123,30 @@ export function FlowNode({
   label,
   sub,
   accent = false,
+  className,
 }: {
   label: string;
   sub?: string;
   accent?: boolean;
+  className?: string;
 }) {
   return (
     <div
       className={cn(
-        "flex min-h-[52px] min-w-0 flex-1 flex-col items-start justify-center rounded-[4px] border px-[12px] py-[10px] md:min-h-[58px] md:px-[14px]",
+        "flex min-h-[52px] w-max shrink-0 flex-col items-start justify-center rounded-[4px] border px-[16px] py-[10px] md:min-h-[58px] md:px-[18px]",
         accent
           ? "border-accent text-accent"
-          : "border-border-strong text-foreground"
+          : "border-border-strong text-foreground",
+        className
       )}
     >
-      <span className="text-[13px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[14px]">
+      <span className="whitespace-nowrap text-[13px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[14px]">
         {label}
       </span>
       {sub ? (
         <span
           className={cn(
-            "mt-[2px] text-[11px]",
+            "mt-[2px] whitespace-nowrap text-[11px]",
             accent ? "text-accent/80" : "text-muted"
           )}
         >

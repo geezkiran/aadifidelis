@@ -4,7 +4,6 @@ import {
   FlowArrow,
   FlowNode,
   Slide,
-  SlideFooter,
   SlideTitle,
 } from "@/components/shared";
 
@@ -15,12 +14,12 @@ export function Phase2DividerSlide() {
         <p className="text-[72px] font-medium leading-none tracking-[-0.04em] text-accent md:text-[96px]">
           04
         </p>
-        <h2 className="mt-[12px] text-[28px] font-medium tracking-[-0.03em] md:text-[36px]">
+        <h2 className="mt-[12px] text-[28px] font-medium leading-[1.2] tracking-[-0.03em] md:text-[36px]">
           Phase 2 — Value capture
         </h2>
         <p className="mt-[14px] max-w-[420px] text-[15px] leading-[1.5] text-white/75 md:text-[16px]">
-          Five focused areas, each tied to a specific, quantifiable outcome on existing
-          volume.
+          Margin on existing volume — then the data asset that compounds into predictive
+          decisioning.
         </p>
       </div>
     </Slide>
@@ -29,7 +28,7 @@ export function Phase2DividerSlide() {
 
 export function DocumentAISlide() {
   return (
-    <Slide id="document-ai" footer={<SlideFooter n={15} />}>
+    <Slide id="document-ai">
       <div className="flex flex-col gap-[28px] md:gap-[36px]">
         <SlideTitle>
           Automated document processing compresses turnaround from a day to minutes
@@ -55,7 +54,7 @@ export function DocumentAISlide() {
 
 export function LenderRoutingSlide() {
   return (
-    <Slide id="lender-routing" footer={<SlideFooter n={16} />}>
+    <Slide id="lender-routing">
       <div className="flex flex-col gap-[32px] md:gap-[40px]">
         <SlideTitle>
           Systematic lender routing addresses the largest single margin opportunity
@@ -85,7 +84,7 @@ export function LenderRoutingSlide() {
 
 export function ReconciliationSlide() {
   return (
-    <Slide id="reconciliation" footer={<SlideFooter n={17} />}>
+    <Slide id="reconciliation">
       <div className="flex flex-col gap-[28px] md:gap-[36px]">
         <SlideTitle>
           Automated reconciliation converts outstanding commission into collected commission
@@ -117,7 +116,7 @@ export function ReconciliationSlide() {
 
 export function PartnerAnalyticsSlide() {
   return (
-    <Slide id="partner-analytics" footer={<SlideFooter n={18} />}>
+    <Slide id="partner-analytics">
       <div className="flex flex-col gap-[36px] md:gap-[44px]">
         <SlideTitle>Partner performance analytics direct support where it compounds</SlideTitle>
         <div className="grid grid-cols-1 gap-[28px] md:grid-cols-2 md:gap-[40px]">
@@ -150,7 +149,7 @@ export function PartnerAnalyticsSlide() {
 
 export function PredictivePromptsSlide() {
   return (
-    <Slide id="predictive-prompts" footer={<SlideFooter n={19} />}>
+    <Slide id="predictive-prompts">
       <div className="flex flex-col gap-[36px] md:gap-[44px]">
         <SlideTitle>Predictive prompts move the team from reactive to pre-emptive</SlideTitle>
         <div className="grid grid-cols-1 gap-[24px] md:grid-cols-3 md:gap-[32px]">
@@ -185,15 +184,117 @@ export function PredictivePromptsSlide() {
   );
 }
 
+export function DataAssetSlide() {
+  return (
+    <Slide id="data-asset">
+      <div className="flex flex-col gap-[36px] md:gap-[44px]">
+        <SlideTitle>
+          Operating the platform generates a proprietary data asset few others could
+          assemble
+        </SlideTitle>
+        <div className="grid grid-cols-1 gap-[28px] md:grid-cols-2 md:gap-[40px]">
+          <div className="md:border-r md:border-border md:pr-[28px]">
+            <h3 className="text-[18px] font-medium tracking-[-0.02em] md:text-[20px]">
+              What accrues
+            </h3>
+            <Body className="mt-[12px]">
+              Phase 2 captures lender-outcome data across 100+ lenders and millions of
+              profiles — who approved, how quickly, at what price, and why cases were
+              declined.
+            </Body>
+          </div>
+          <div>
+            <h3 className="text-[18px] font-medium tracking-[-0.02em] md:text-[20px]">
+              Why it&apos;s rare
+            </h3>
+            <Body className="mt-[12px]">
+              Individual lenders see only their own book; bureaus see booked loans, not the
+              full decision graph. Over time, Aadifidelis would hold one of the richest maps
+              of mid-market lender behaviour in the country — seeing both.
+            </Body>
+          </div>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
+export function CreditGraphSlide() {
+  return (
+    <Slide id="credit-graph">
+      <div className="flex flex-col gap-[32px] md:gap-[40px]">
+        <SlideTitle>
+          That data compounds into predictive decisioning — the Credit Graph
+        </SlideTitle>
+        <div className="flex items-stretch overflow-x-auto pb-[4px]">
+          <FlowNode label="Every case" />
+          <FlowArrow accent />
+          <FlowNode label="Credit Graph" sub="learns lender behaviour" accent />
+          <FlowArrow accent />
+          <FlowNode label="Before submission" sub="likely lender · speed · pricing" accent />
+        </div>
+        <Body className="max-w-[760px]">
+          Rules-based routing starts capturing value immediately. As live cases accumulate,
+          the Credit Graph learns from every outcome, improving continuously — a compounding
+          advantage that grows the more of your normal business you run. More volume →
+          sharper model → better outcomes.
+        </Body>
+      </div>
+    </Slide>
+  );
+}
+
+export function StrategicPositionSlide() {
+  return (
+    <Slide id="strategic-position">
+      <div className="flex flex-col gap-[32px] md:gap-[40px]">
+        <SlideTitle>Predictive decisioning expands Aadifidelis&apos;s strategic position</SlideTitle>
+        <div className="flex flex-wrap items-start gap-[20px] md:gap-[28px]">
+          <div>
+            <p className="text-[28px] font-medium tracking-[-0.03em] text-accent md:text-[36px]">
+              Distributor
+            </p>
+            <p className="mt-[8px] text-[13px] text-muted md:text-[14px]">
+              commission price-taker
+            </p>
+          </div>
+          <span className="pt-[6px] text-[28px] text-accent md:pt-[10px] md:text-[36px]" aria-hidden>
+            →
+          </span>
+          <div>
+            <p className="text-[28px] font-medium tracking-[-0.03em] text-accent md:text-[36px]">
+              Decisioning partner
+            </p>
+            <p className="mt-[8px] text-[13px] text-muted md:text-[14px]">
+              negotiates from evidence
+            </p>
+          </div>
+        </div>
+        <Body className="max-w-[760px]">
+          A distributor negotiates the commission a lender offers; a partner that
+          demonstrably improves approval quality negotiates from evidence — pre-qualified
+          volume that converts better is worth more. It opens adjacent structures over time:
+          co-lending, first-loss arrangements, embedded-finance rails where Aadifidelis
+          contributes decisioning, not only distribution.
+        </Body>
+      </div>
+    </Slide>
+  );
+}
+
 export function Phase2CloseSlide() {
   return (
-    <Slide id="phase-2-close" footer={<SlideFooter n={20} />}>
+    <Slide id="phase-2-close">
       <div className="flex max-w-[640px] flex-col gap-[20px] md:gap-[24px]">
-        <SlideTitle>Phase 2 improves margin on existing volume.</SlideTitle>
+        <SlideTitle>
+          Phase 2 improves margin on existing volume — and compounds into decisioning
+          advantage.
+        </SlideTitle>
         <Body className="text-[15px] md:text-[16px]">
           Higher approval through routing, faster turnaround through automation, more
-          complete commission collection, better-directed partner support — all on the
-          business you already run. No additional origination required.
+          complete commission collection, better-directed partner support — plus a Credit
+          Graph that learns from every case. All on the business you already run. No
+          additional origination required.
         </Body>
       </div>
     </Slide>

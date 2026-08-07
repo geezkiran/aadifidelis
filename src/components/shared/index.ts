@@ -6,6 +6,5 @@ export {
   MockFrame,
   MockNote,
   Slide,
-  SlideFooter,
   SlideTitle,
 } from "./Slide";
