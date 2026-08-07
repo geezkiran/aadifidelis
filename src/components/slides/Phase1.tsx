@@ -6,8 +6,7 @@ export function Phase1ExistsSlide() {
     <Slide id="phase-1-exists">
       <div className="flex flex-col gap-[36px] md:gap-[44px]">
         <SlideTitle>
-          Phase I establishes a single, real-time view of the business — and it already
-          exists
+          Phase I establishes a unified real-time view of the business
         </SlideTitle>
         <div className="grid grid-cols-1 gap-[28px] md:grid-cols-2 md:gap-[40px]">
           <div className="md:border-r md:border-border md:pr-[28px]">
@@ -256,10 +255,7 @@ export function Phase1CloseSlide() {
   return (
     <Slide id="phase-1-close">
       <div className="flex max-w-[640px] flex-col gap-[20px] md:gap-[24px]">
-        <SlideTitle>
-          Phase I delivers a complete, real-time view of the business. <br />Phase II expands it
-          even further.
-        </SlideTitle>
+        <SlideTitle>Phase II expands it even further.</SlideTitle>
         <Body className="text-[15px] md:text-[16px]">
           Visibility is the foundation — Phase II uses it to improve the numbers you can now
           see: faster turnaround, fuller collection, sharper routing.

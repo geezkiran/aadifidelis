@@ -41,12 +41,21 @@ export function LenderRoutingSlide() {
           Systematic lender routing addresses the largest single margin opportunity
         </SlideTitle>
         <div className="flex flex-wrap items-start gap-[28px] md:gap-[40px]">
-          <AccentStat value="54%" label="approval rate today" />
+          <AccentStat
+            value="54%"
+            label="book-level approval — Mar'23–Feb'24 bank book"
+          />
           <AccentStat
             value="~72%"
-            label="top-quartile lenders — part of the gap is routing, not borrower quality"
+            label="approval among top-quartile lenders on that same book"
           />
         </div>
+        <Body className="max-w-[720px] text-[12px] leading-[1.5] text-muted-soft md:text-[12px]">
+          Observed spread across lenders on your submissions — not a pledged lift to 72%
+          on every case. Part of the gap is lender–borrower fit (routing); the rest is credit
+          quality, product mix, and lender policy. Rules-based routing targets the fit share
+          first; the Credit Graph tightens it as outcomes accumulate.
+        </Body>
         <div className="flex items-stretch overflow-x-auto pb-[4px]">
           <FlowNode label="Borrower profile" sub="income · vintage · score · FOIR · geo" />
           <FlowArrow accent />
@@ -266,6 +275,124 @@ export function StrategicPositionSlide() {
   );
 }
 
+export function CrmEngagementSlide() {
+  return (
+    <Slide id="crm-engagement">
+      <div className="flex flex-col gap-[36px] md:gap-[44px]">
+        <SlideTitle>
+          CRM, WhatsApp, and agentic workflows cut cycle time and raise follow-through
+        </SlideTitle>
+        <div className="grid grid-cols-1 gap-[24px] md:grid-cols-3 md:gap-[32px]">
+          <div>
+            <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[18px]">
+              CRM as system of record
+            </h3>
+            <Body className="mt-[10px]">
+              Every lead, partner touch, case status, and next action in one place — no
+              orphaned WhatsApp threads or spreadsheet handoffs.
+            </Body>
+          </div>
+          <div>
+            <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[18px]">
+              WhatsApp Business
+            </h3>
+            <Body className="mt-[10px]">
+              Click-to-WhatsApp intake, document nudges, status updates, and partner alerts
+              on the channel borrowers already use.
+            </Body>
+          </div>
+          <div>
+            <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[18px]">
+              AI agentic workflows
+            </h3>
+            <Body className="mt-[10px]">
+              Agents qualify, chase missing docs, escalate aging cases, and draft next
+              actions — humans approve. Operational efficiency without losing control.
+            </Body>
+          </div>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
+export function CustomerWebsiteSlide() {
+  return (
+    <Slide id="customer-website">
+      <div className="flex flex-col gap-[36px] md:gap-[44px]">
+        <SlideTitle>
+          A customer website that attracts, qualifies, and brings visitors back
+        </SlideTitle>
+        <div className="grid grid-cols-1 gap-[28px] md:grid-cols-2 md:gap-[40px]">
+          <div className="md:border-r md:border-border md:pr-[28px]">
+            <h3 className="text-[18px] font-medium tracking-[-0.02em] md:text-[20px]">
+              Tools that earn traffic
+            </h3>
+            <Body className="mt-[12px]">
+              Free CIBIL / credit-score check, EMI calculator, and eligibility estimator —
+              each tool captures intent and feeds the CRM instead of leaving visitors as
+              anonymous page views.
+            </Body>
+          </div>
+          <div>
+            <h3 className="text-[18px] font-medium tracking-[-0.02em] md:text-[20px]">
+              Return-visit signal &amp; retargeting
+            </h3>
+            <Body className="mt-[12px]">
+              Meta Pixel plus Conversions API (CAPI) marks tool abandoners and return
+              visitors into custom audiences — and CRM triggers notify the team so outreach
+              follows the signal: revisit → alert → follow-up, not a static brochure.
+            </Body>
+          </div>
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
+export function GrowthOutreachSlide() {
+  const channels = [
+    {
+      title: "Meta Pixel + CAPI retargeting",
+      body: "Warm audiences from site and tool visitors — highest-intent recovery of abandoned interest.",
+    },
+    {
+      title: "Click-to-WhatsApp campaigns",
+      body: "Low-friction, India-native lead capture that lands straight in the CRM.",
+    },
+    {
+      title: "Google Ads + remarketing",
+      body: "High-intent search — personal loan, CIBIL check — plus site remarketing for return traffic.",
+    },
+    {
+      title: "SEO lead magnets",
+      body: "Calculator and score pages that rank and feed an organic pipeline over time.",
+    },
+    {
+      title: "CRM lookalikes & partner referrals",
+      body: "Closed and qualified lists seed lookalike audiences; systematic partner share-links extend outreach.",
+    },
+  ];
+
+  return (
+    <Slide id="growth-outreach">
+      <div className="flex flex-col gap-[28px] md:gap-[32px]">
+        <SlideTitle>Channels that compound outreach beyond a static brochure site</SlideTitle>
+        <div className="grid grid-cols-1 gap-[24px] md:grid-cols-2 md:gap-x-[40px] md:gap-y-[28px]">
+          {channels.map((channel) => (
+            <div key={channel.title}>
+              <h3 className="text-[16px] font-medium tracking-[-0.02em] md:text-[18px]">
+                {channel.title}
+              </h3>
+              <Body className="mt-[10px]">{channel.body}</Body>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Slide>
+  );
+}
+
 export function Phase2CloseSlide() {
   return (
     <Slide id="phase-2-close">
@@ -277,8 +404,10 @@ export function Phase2CloseSlide() {
         <Body className="text-[15px] md:text-[16px]">
           Higher approval through routing, faster turnaround through automation, recovery of
           the ~₹25.1 Cr chaseable book and the ₹22 Cr cash already out, better-directed
-          partner support — plus a Credit Graph that learns from every case. All on the
-          business you already run. No additional origination required.
+          partner support — plus a Credit Graph that learns from every case. CRM, WhatsApp,
+          and agentic workflows tighten follow-through; a customer website with tools and
+          Pixel retargeting brings warmer traffic back into the funnel. All on the business
+          you already run.
         </Body>
       </div>
     </Slide>

@@ -15,8 +15,11 @@ import {
 } from "./Phase1";
 import {
   CreditGraphSlide,
+  CrmEngagementSlide,
+  CustomerWebsiteSlide,
   DataAssetSlide,
   DocumentAISlide,
+  GrowthOutreachSlide,
   LenderRoutingSlide,
   PartnerAnalyticsSlide,
   Phase2CloseSlide,
@@ -25,11 +28,8 @@ import {
   StrategicPositionSlide,
 } from "./Phase2";
 import {
-  AlternativesSlide,
   ClosingSlide,
   ConsiderationsSlide,
-  EvidenceSlide,
-  InternalCaseSlide,
   InvestmentSlide,
 } from "./Close";
 
@@ -53,12 +53,12 @@ export const slides = [
   DataAssetSlide,
   CreditGraphSlide,
   StrategicPositionSlide,
+  CrmEngagementSlide,
+  CustomerWebsiteSlide,
+  GrowthOutreachSlide,
   Phase2CloseSlide,
-  AlternativesSlide,
-  EvidenceSlide,
   InvestmentSlide,
   ConsiderationsSlide,
-  InternalCaseSlide,
   ClosingSlide,
 ];
 
@@ -82,11 +82,11 @@ export const slideLabels = [
   "Data asset",
   "Credit Graph",
   "Strategic position",
+  "CRM & WhatsApp",
+  "Customer website",
+  "Growth outreach",
   "Phase II close",
-  "Alternatives",
-  "Evidence",
   "Scope & timeline",
   "Considerations",
-  "Internal case",
   "Closing",
 ];
