@@ -13,7 +13,7 @@ export function InvestmentSlide() {
     },
     {
       title: "Phase II — Value capture",
-      body: "Modules sequenced: Document AI · Lender routing · Reconciliation · Partner analytics · Decision support · Credit Graph · CRM · WhatsApp · Agentic workflows · Customer website & Pixel · Growth outreach. Model matures with ~9 months of live cases.",
+      body: "Modules sequenced: Document AI · Lender routing · Reconciliation · Partner analytics · Decision support · Credit Graph · CRM · WhatsApp · Agentic workflows · Revamp website & Pixel · Customer-facing loan app · Growth outreach. Model matures with ~9 months of live cases.",
       timeline: "Timeline · 3–5 weeks per module; Credit Graph ongoing",
     },
   ];

@@ -14,7 +14,7 @@ import {
   Phase1FeaturesSlide,
 } from "./Phase1";
 import { Phase2CloseSlide, Phase2ProposalsSlide } from "./Phase2";
-import { ClosingSlide, ConsiderationsSlide, InvestmentSlide } from "./Close";
+import { ClosingSlide, ConsiderationsSlide } from "./Close";
 
 export const slides = [
   TitleSlide,
@@ -30,7 +30,6 @@ export const slides = [
   Phase1CloseSlide,
   Phase2ProposalsSlide,
   Phase2CloseSlide,
-  InvestmentSlide,
   ConsiderationsSlide,
   ClosingSlide,
 ];
@@ -49,7 +48,6 @@ export const slideLabels = [
   "Phase I close",
   "Phase II proposals",
   "Phase II close",
-  "Scope & timeline",
   "Considerations",
   "Closing",
 ];
