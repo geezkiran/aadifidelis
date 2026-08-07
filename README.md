@@ -1,10 +1,6 @@
-# Pitch Deck
+# AutoBiz.ai Landing Page
 
-A vertically scrolling pitch deck built with Next.js, optimized for desktop.
-
-## Features
-- **Desktop**: Side dot navigation + keyboard (↑ ↓ or arrow keys)
-- **Reusable blocks**: Every UI element is a composable component in `src/components/blocks/`
+A high-conversion marketing landing page built with Next.js, matching a fixed desktop / mobile layout system.
 
 ## Getting Started
 
@@ -15,25 +11,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Project Structure
+## Structure
 
 ```
 src/
-├── app/                  # Next.js app router
-├── components/
-│   ├── blocks/           # Reusable slide building blocks
-│   ├── deck/             # Scroll container & navigation
-│   └── pitch/            # Composed slides & content
-└── lib/                  # Utilities
+├── app/                 # Next.js app router
+├── components/landing/  # Page sections (Hero, FAQ, Footer, …)
+├── font/                # Neue Haas Display Roman
+└── lib/                 # Utilities
 ```
 
-## Customizing Content
+## Conventions
 
-Edit `src/components/pitch/PitchSlides.tsx` to update slide content. Each slide composes reusable blocks from `src/components/blocks/`.
-
-## Build
-
-```bash
-npm run build
-npm start
-```
+- **Font:** Neue Haas Display Roman
+- **Sizing:** explicit `px` values only
+- **Breakpoints:** mobile (default) and desktop (`md:` ≥ 768px)
+- Full-viewport snap slides (pitch-deck feel) — no bottom page indicator
+- Keyboard: ↑ ↓ / arrows / space

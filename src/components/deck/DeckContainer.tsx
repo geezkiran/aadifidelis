@@ -2,33 +2,18 @@
 
 import { cn } from "@/lib/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SlideNav } from "./SlideNav";
-import { ScrollHint } from "./ScrollHint";
 
 interface DeckContainerProps {
   children: React.ReactNode;
-  slideLabels: string[];
+  slideCount: number;
+  slideLabels?: string[];
 }
 
-const SCROLL_HINT_IDLE_MS = 30000;
-
-export function DeckContainer({ children, slideLabels }: DeckContainerProps) {
+export function DeckContainer({ children, slideCount }: DeckContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [scrollHintVisible, setScrollHintVisible] = useState(false);
   const activeIndexRef = useRef(0);
   const scrollEndTimerRef = useRef<number | null>(null);
-  const idleTimerRef = useRef<number | null>(null);
-
-  const resetScrollHintIdle = useCallback(() => {
-    setScrollHintVisible(false);
-    if (idleTimerRef.current !== null) {
-      window.clearTimeout(idleTimerRef.current);
-    }
-    idleTimerRef.current = window.setTimeout(() => {
-      setScrollHintVisible(true);
-    }, SCROLL_HINT_IDLE_MS);
-  }, []);
+  const [, setActiveIndex] = useState(0);
 
   const getSlides = useCallback(() => {
     const container = containerRef.current;
@@ -72,6 +57,20 @@ export function DeckContainer({ children, slideLabels }: DeckContainerProps) {
     }
   }, [getSlides, setSlideActiveStates]);
 
+  const scrollToSlide = useCallback(
+    (index: number) => {
+      const slides = getSlides();
+      const slide = slides[index];
+      if (!slide) return;
+
+      activeIndexRef.current = index;
+      setActiveIndex(index);
+      setSlideActiveStates(index);
+      slide.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+    [getSlides, setSlideActiveStates]
+  );
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -79,7 +78,6 @@ export function DeckContainer({ children, slideLabels }: DeckContainerProps) {
     setSlideActiveStates(0);
 
     const onScroll = () => {
-      resetScrollHintIdle();
       updateActiveSlide();
       if (scrollEndTimerRef.current !== null) {
         window.clearTimeout(scrollEndTimerRef.current);
@@ -97,49 +95,7 @@ export function DeckContainer({ children, slideLabels }: DeckContainerProps) {
         window.clearTimeout(scrollEndTimerRef.current);
       }
     };
-  }, [updateActiveSlide, setSlideActiveStates, resetScrollHintIdle]);
-
-  useEffect(() => {
-    resetScrollHintIdle();
-
-    const onActivity = () => resetScrollHintIdle();
-    const activityEvents = [
-      "mousemove",
-      "mousedown",
-      "touchstart",
-      "keydown",
-      "wheel",
-    ] as const;
-
-    activityEvents.forEach((event) => {
-      window.addEventListener(event, onActivity, { passive: true });
-    });
-
-    return () => {
-      activityEvents.forEach((event) => {
-        window.removeEventListener(event, onActivity);
-      });
-      if (idleTimerRef.current !== null) {
-        window.clearTimeout(idleTimerRef.current);
-      }
-    };
-  }, [resetScrollHintIdle]);
-
-  const scrollToSlide = useCallback(
-    (index: number) => {
-      const slides = getSlides();
-      const slide = slides[index];
-      if (!slide) return;
-
-      activeIndexRef.current = index;
-      setActiveIndex(index);
-      setSlideActiveStates(index);
-      resetScrollHintIdle();
-
-      slide.scrollIntoView({ behavior: "smooth", block: "start" });
-    },
-    [getSlides, setSlideActiveStates, resetScrollHintIdle]
-  );
+  }, [updateActiveSlide, setSlideActiveStates]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -148,7 +104,7 @@ export function DeckContainer({ children, slideLabels }: DeckContainerProps) {
 
       if (nextKeys.includes(event.key)) {
         event.preventDefault();
-        scrollToSlide(Math.min(activeIndexRef.current + 1, slideLabels.length - 1));
+        scrollToSlide(Math.min(activeIndexRef.current + 1, slideCount - 1));
       }
       if (prevKeys.includes(event.key)) {
         event.preventDefault();
@@ -158,30 +114,39 @@ export function DeckContainer({ children, slideLabels }: DeckContainerProps) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [scrollToSlide, slideLabels.length]);
+  }, [scrollToSlide, slideCount]);
+
+  useEffect(() => {
+    const onHashClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const anchor = target?.closest?.("a[href^='#']") as HTMLAnchorElement | null;
+      if (!anchor) return;
+
+      const id = anchor.getAttribute("href")?.slice(1);
+      if (!id) return;
+
+      const slides = getSlides();
+      const index = slides.findIndex((slide) => slide.id === id);
+      if (index < 0) return;
+
+      event.preventDefault();
+      scrollToSlide(index);
+    };
+
+    document.addEventListener("click", onHashClick);
+    return () => document.removeEventListener("click", onHashClick);
+  }, [getSlides, scrollToSlide]);
 
   return (
     <div className="relative h-dvh">
       <div
         ref={containerRef}
         className={cn(
-          "deck-scroll h-dvh snap-y snap-mandatory overflow-y-auto overflow-x-hidden"
+          "deck-scroll flex h-dvh snap-y snap-mandatory flex-col items-center overflow-y-auto overflow-x-hidden"
         )}
       >
         {children}
       </div>
-
-      <ScrollHint
-        visible={
-          scrollHintVisible && activeIndex < slideLabels.length - 1
-        }
-      />
-
-      <SlideNav
-        labels={slideLabels}
-        activeIndex={activeIndex}
-        onNavigate={scrollToSlide}
-      />
     </div>
   );
 }

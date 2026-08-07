@@ -1,70 +1,104 @@
-import { AboutSlide } from "./About";
-import { CompetitiveSlide } from "./TruHealth";
-import { SwasthFitSlide } from "./SwasthFit";
-import { ThyrocareSlide } from "./Thyrocare";
-import { CompetitionAlreadySlide } from "./Introducing";
-import { BusinessModelSlide } from "./Flywheel";
-import { TitleSlide } from "./AarthiLife";
-import { AppIntroSlide } from "./Discover";
-import { AppIntroSlide2 } from "./Booking";
-import { AppIntroSlide3 } from "./Track";
-import { AppIntroSlide4 } from "./Understand";
-import { AppIntroSlide5 } from "./Loop";
-import { StatementSlide } from "./Diagnostics";
-import { ProblemSlide } from "./Problem";
-import { StrengthsSlide } from "./Strengths";
-import { ShiftSlide } from "./Shift";
-import { RelationshipSlide } from "./Relationship";
-
-/** Narrative: introduction → statement → about → competition → solution → strengths → the shift → introducing → app intro → relationship */
-export const slideSections = [
-  { label: "Introduction", slides: [0, 1] },
-  { label: "About", slides: [2] },
-  { label: "Competition", slides: [3, 4, 5] },
-  { label: "Solution", slides: [6] },
-  { label: "Strengths", slides: [7] },
-  { label: "The shift", slides: [8, 9] },
-  { label: "Introducing", slides: [10] },
-  { label: "App", slides: [11, 12, 13, 14, 15] },
-  { label: "Relationship", slides: [16] },
-] as const;
-
-export const slideLabels = [
-  "Introduction",
-  "Statement",
-  "About Aarthi",
-  "TruHealth",
-  "SwasthFit",
-  "Thyrocare",
-  "Key Initiatives",
-  "Strengths",
-  "The Problem",
-  "The Shift",
-  "Introducing",
-  "App 1",
-  "App 2",
-  "App 3",
-  "App 4",
-  "App 5",
-  "Relationship",
-];
+import {
+  ExceptionsSlide,
+  LifecycleSlide,
+  MarginSlide,
+  ScaleSlide,
+  TitleSlide,
+  ValueAtStakeSlide,
+} from "./Opening";
+import {
+  FieldCaptureSlide,
+  GovernanceSlide,
+  LeadershipViewSlide,
+  Phase1CloseSlide,
+  Phase1DividerSlide,
+  Phase1ExistsSlide,
+  WorkQueueSlide,
+} from "./Phase1";
+import {
+  DocumentAISlide,
+  LenderRoutingSlide,
+  PartnerAnalyticsSlide,
+  Phase2CloseSlide,
+  Phase2DividerSlide,
+  PredictivePromptsSlide,
+  ReconciliationSlide,
+} from "./Phase2";
+import {
+  AlternativesSlide,
+  ClosingSlide,
+  ConsiderationsSlide,
+  CreditGraphSlide,
+  DataAssetSlide,
+  EvidenceSlide,
+  InternalCaseSlide,
+  InvestmentSlide,
+  StrategicPositionSlide,
+  ThreePhasesSlide,
+} from "./Close";
 
 export const slides = [
   TitleSlide,
-  StatementSlide,
-  AboutSlide,
-  CompetitiveSlide,
-  SwasthFitSlide,
-  ThyrocareSlide,
-  BusinessModelSlide,
-  StrengthsSlide,
-  ProblemSlide,
-  ShiftSlide,
-  CompetitionAlreadySlide,
-  AppIntroSlide,
-  AppIntroSlide2,
-  AppIntroSlide3,
-  AppIntroSlide4,
-  AppIntroSlide5,
-  RelationshipSlide,
+  ScaleSlide,
+  MarginSlide,
+  ValueAtStakeSlide,
+  ExceptionsSlide,
+  LifecycleSlide,
+  Phase1DividerSlide,
+  Phase1ExistsSlide,
+  LeadershipViewSlide,
+  GovernanceSlide,
+  WorkQueueSlide,
+  FieldCaptureSlide,
+  Phase1CloseSlide,
+  Phase2DividerSlide,
+  DocumentAISlide,
+  LenderRoutingSlide,
+  ReconciliationSlide,
+  PartnerAnalyticsSlide,
+  PredictivePromptsSlide,
+  Phase2CloseSlide,
+  DataAssetSlide,
+  CreditGraphSlide,
+  StrategicPositionSlide,
+  ThreePhasesSlide,
+  AlternativesSlide,
+  EvidenceSlide,
+  InvestmentSlide,
+  ConsiderationsSlide,
+  InternalCaseSlide,
+  ClosingSlide,
+];
+
+export const slideLabels = [
+  "Title",
+  "Scale",
+  "Margin",
+  "Value at stake",
+  "Exceptions",
+  "Lifecycle",
+  "Phase 1",
+  "Exists",
+  "Leadership view",
+  "Governance",
+  "Work queue",
+  "Field capture",
+  "Phase 1 close",
+  "Phase 2",
+  "Document AI",
+  "Lender routing",
+  "Reconciliation",
+  "Partner analytics",
+  "Predictive prompts",
+  "Phase 2 close",
+  "Data asset",
+  "Credit Graph",
+  "Strategic position",
+  "Three phases",
+  "Alternatives",
+  "Evidence",
+  "Investment",
+  "Considerations",
+  "Internal case",
+  "Closing",
 ];

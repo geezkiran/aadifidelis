@@ -1,17 +1,11 @@
-export { Slide } from "./Slide";
-export { SlideIntro, SlideIntroSection } from "./SlideIntro";
-export { SlideLead, SlideBody } from "./SlideLead";
-export { Eyebrow } from "./Eyebrow";
-export { HeadingBlock } from "./HeadingBlock";
-export { TextBlock } from "./TextBlock";
-export { CTABlock } from "./CTABlock";
-export { StatBlock } from "./StatBlock";
-export { StatGrid, StatGridGroup } from "./StatGrid";
-export { ComparisonTable } from "./ComparisonTable";
-export { Icon3D } from "./Icon3D";
-export type { Icon3DVariant } from "./Icon3D";
-export { StepFlow, CircularStepFlow } from "./StepFlow";
-export { BentoGrid } from "./BentoGrid";
-export type { BentoCardItem } from "./BentoGrid";
-export { ProgressGaugeCard } from "./ProgressGaugeCard";
-export type { ProgressGaugeCardProps, ReportDetails } from "./ProgressGaugeCard";
+export {
+  AccentStat,
+  Body,
+  FlowArrow,
+  FlowNode,
+  MockFrame,
+  MockNote,
+  Slide,
+  SlideFooter,
+  SlideTitle,
+} from "./Slide";

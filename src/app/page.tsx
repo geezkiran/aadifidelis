@@ -9,7 +9,7 @@ function isSlideComponent(component: unknown): component is () => ReactNode {
 export default function Home() {
   return (
     <main>
-      <DeckContainer slideLabels={slideLabels}>
+      <DeckContainer slideCount={slides.length} slideLabels={slideLabels}>
         {slides.map((SlideComponent, index) => {
           if (!isSlideComponent(SlideComponent)) {
             throw new Error(
