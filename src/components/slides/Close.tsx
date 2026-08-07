@@ -25,11 +25,11 @@ export function InvestmentSlide() {
         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[24px]">
           {phases.map((phase) => (
             <div key={phase.title} className="border-t border-border pt-[16px]">
-              <h3 className="text-[15px] font-medium tracking-[-0.01em] md:text-[16px]">
+              <h3 className="text-[16px] font-medium tracking-[-0.01em] md:text-[16px]">
                 {phase.title}
               </h3>
-              <Body className="mt-[10px] text-[13px] md:text-[13px]">{phase.body}</Body>
-              <p className="mt-[14px] text-[12px] text-accent">{phase.timeline}</p>
+              <Body className="mt-[10px] text-[14px] md:text-[13px]">{phase.body}</Body>
+              <p className="mt-[14px] text-[13px] text-accent md:text-[12px]">{phase.timeline}</p>
             </div>
           ))}
         </div>
@@ -66,10 +66,10 @@ export function ConsiderationsSlide() {
         <div className="grid grid-cols-1 gap-[24px] md:grid-cols-2 md:gap-x-[40px] md:gap-y-[28px]">
           {items.map((item) => (
             <div key={item.title}>
-              <h3 className="text-[16px] font-medium tracking-[-0.02em] md:text-[18px]">
+              <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[18px]">
                 {item.title}
               </h3>
-              <Body className="mt-[10px]">{item.body}</Body>
+              <Body className="mt-[10px] text-[15px] md:text-[15px]">{item.body}</Body>
             </div>
           ))}
         </div>
@@ -80,9 +80,9 @@ export function ConsiderationsSlide() {
 
 export function ClosingSlide() {
   return (
-    <Slide id="closing" footer={<p className="text-[11px] text-muted-soft md:text-[12px]">TwoSpoon · santosh@twospoon.ai</p>}>
+    <Slide id="closing" footer={<p className="text-[12px] text-muted-soft md:text-[12px]">TwoSpoon · santosh@twospoon.ai</p>}>
       <div className="flex max-w-[640px] flex-col gap-[28px] md:gap-[36px]">
-        <h2 className="text-[32px] font-medium leading-[1.2] tracking-[-0.03em] md:text-[48px]">
+        <h2 className="text-[30px] font-medium leading-[1.18] tracking-[-0.03em] md:text-[48px] md:leading-[1.2]">
           You&apos;ve built the scale.
           <br />
           The opportunity now is the margin scale creates.

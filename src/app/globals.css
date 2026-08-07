@@ -37,6 +37,9 @@
   }
 }
 
+/* Real viewport breakpoint — not forced by .deck-force-desktop (for deck chrome). */
+@custom-variant viewport-md (@media (min-width: 768px));
+
 :root {
   --slide-design-w: 1380px;
   --slide-design-h: 900px;
@@ -156,4 +159,40 @@ body {
 .deck-force-desktop .slide-shell {
   padding-left: 56px;
   padding-right: 56px;
+}
+
+/*
+ * Mobile: drop the fixed design canvas. Slides fill the viewport and use real
+ * mobile type sizes instead of a tiny scaled-down desktop composition.
+ */
+@media (max-width: 767px) {
+  .slide-canvas {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    will-change: auto;
+  }
+
+  .slide-shell {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  [data-slide] .slide-content {
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  [data-slide] .slide-content.justify-center,
+  [data-slide] .slide-content.items-center {
+    justify-content: center;
+  }
 }

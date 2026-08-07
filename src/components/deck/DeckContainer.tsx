@@ -33,6 +33,7 @@ export function DeckContainer({
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [slideScale, setSlideScale] = useState(1);
+  const [isMobileChrome, setIsMobileChrome] = useState(true);
 
   const getSlides = useCallback(() => {
     const container = containerRef.current;
@@ -112,10 +113,22 @@ export function DeckContainer({
   );
 
   useLayoutEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const syncChrome = () => setIsMobileChrome(media.matches);
+    syncChrome();
+    media.addEventListener("change", syncChrome);
+    return () => media.removeEventListener("change", syncChrome);
+  }, []);
+
+  useLayoutEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const updateScale = () => {
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        setSlideScale(1);
+        return;
+      }
       setSlideScale(
         computeSlideScale(container.clientWidth, container.clientHeight)
       );
@@ -136,7 +149,7 @@ export function DeckContainer({
       window.removeEventListener("resize", updateScale);
       window.visualViewport?.removeEventListener("resize", updateScale);
     };
-  }, [updateActiveSlide]);
+  }, [updateActiveSlide, isMobileChrome]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -205,11 +218,16 @@ export function DeckContainer({
   }, [getSlides, scrollToSlide]);
 
   return (
-    <div className="deck-force-desktop relative flex h-dvh">
+    <div
+      className={cn(
+        "relative flex h-dvh flex-col viewport-md:flex-row",
+        !isMobileChrome && "deck-force-desktop"
+      )}
+    >
       <div
         ref={containerRef}
         className={cn(
-          "deck-scroll flex h-dvh min-w-0 flex-1 flex-col items-center overflow-y-auto overflow-x-hidden snap-y snap-mandatory"
+          "deck-scroll flex min-h-0 min-w-0 flex-1 flex-col items-center overflow-y-auto overflow-x-hidden snap-y snap-mandatory"
         )}
         style={
           {
@@ -222,12 +240,19 @@ export function DeckContainer({
         {children}
       </div>
 
-      <aside className="relative z-40 flex h-dvh w-[48px] shrink-0 items-center justify-center border-l border-border bg-background md:w-[64px]">
+      <aside
+        className={cn(
+          "relative z-40 flex shrink-0 items-center justify-center bg-background",
+          "h-[48px] w-full border-t border-border",
+          "viewport-md:h-dvh viewport-md:w-[64px] viewport-md:border-t-0 viewport-md:border-l"
+        )}
+      >
         <ScrollIndicator
           count={slideCount}
           progress={progress}
           labels={slideLabels}
           onNavigate={scrollToSlide}
+          orientation={isMobileChrome ? "horizontal" : "vertical"}
         />
       </aside>
 

@@ -36,13 +36,13 @@ export function Slide({
       <div className="slide-stage">
         <div className="slide-canvas">
           {header ? (
-            <div className="absolute left-[28px] top-[20px] z-10 md:left-[56px] md:top-[28px]">
+            <div className="absolute left-[20px] top-[16px] z-10 md:left-[56px] md:top-[28px]">
               {header}
             </div>
           ) : null}
           <div
             className={cn(
-              "slide-content slide-shell relative flex h-full min-h-0 flex-1 flex-col justify-center py-[40px] md:py-[56px]",
+              "slide-content slide-shell relative flex h-full min-h-0 flex-1 flex-col justify-center py-[28px] md:py-[56px]",
               contentClassName
             )}
           >
@@ -51,7 +51,7 @@ export function Slide({
           {footer ? (
             <div
               className={cn(
-                "slide-shell absolute inset-x-0 bottom-[16px] md:bottom-[20px]",
+                "slide-shell absolute inset-x-0 bottom-[12px] md:bottom-[20px]",
                 dark ? "text-white/35" : "text-muted-soft"
               )}
             >
@@ -74,7 +74,7 @@ export function SlideTitle({
   return (
     <h2
       className={cn(
-        "max-w-[640px] text-[28px] font-medium leading-[1.2] tracking-[-0.03em] md:text-[40px]",
+        "max-w-[640px] text-[26px] font-medium leading-[1.18] tracking-[-0.03em] md:text-[40px] md:leading-[1.2]",
         className
       )}
     >
@@ -93,7 +93,7 @@ export function Body({
   return (
     <p
       className={cn(
-        "max-w-[640px] text-[14px] leading-[1.55] text-muted md:text-[15px]",
+        "max-w-[640px] text-[15px] leading-[1.55] text-muted md:text-[15px]",
         className
       )}
     >
@@ -113,10 +113,10 @@ export function AccentStat({
 }) {
   return (
     <div className={cn("min-w-0", className)}>
-      <p className="text-[32px] font-medium leading-none tracking-[-0.03em] text-accent md:text-[44px]">
+      <p className="text-[28px] font-medium leading-none tracking-[-0.03em] text-accent md:text-[44px]">
         {value}
       </p>
-      <p className="mt-[10px] max-w-[180px] text-[12px] leading-[1.4] text-muted md:text-[13px]">
+      <p className="mt-[8px] max-w-[200px] text-[13px] leading-[1.4] text-muted md:mt-[10px] md:max-w-[180px] md:text-[13px]">
         {label}
       </p>
     </div>
@@ -144,13 +144,13 @@ export function FlowNode({
         className
       )}
     >
-      <span className="whitespace-nowrap text-[13px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[14px]">
+      <span className="whitespace-nowrap text-[14px] font-medium leading-[1.25] tracking-[-0.01em] md:text-[14px]">
         {label}
       </span>
       {sub ? (
         <span
           className={cn(
-            "mt-[2px] whitespace-nowrap text-[11px]",
+            "mt-[2px] whitespace-nowrap text-[12px] md:text-[11px]",
             accent ? "text-accent/80" : "text-muted"
           )}
         >

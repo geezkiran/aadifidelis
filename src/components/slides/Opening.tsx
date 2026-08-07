@@ -20,23 +20,23 @@ export function TitleSlide() {
           alt="two spoon."
           width={290}
           height={100}
-          className="h-auto w-[90px] invert md:w-[106px]"
+          className="h-auto w-[84px] invert md:w-[106px]"
           priority
         />
       }
     >
-      <div className="flex flex-col items-center gap-[28px] md:gap-[36px]">
+      <div className="flex flex-col items-center gap-[24px] md:gap-[36px]">
         <h1>
           <Image
             src="/images/aadifidelis-wordmark.png"
             alt="Aadifidelis"
             width={793}
             height={115}
-            className="h-auto w-[260px] md:w-[400px]"
+            className="h-auto w-[220px] md:w-[400px]"
             priority
           />
         </h1>
-        <Body className="max-w-[520px] text-[15px] md:text-[17px]">
+        <Body className="max-w-[520px] text-[16px] leading-[1.5] md:text-[17px] md:leading-[1.55]">
           From visibility to value — a phased operating platform that turns the scale
           you&apos;ve built into captured margin, and, over time, into strategic optionality.
         </Body>
@@ -58,7 +58,7 @@ export function ScaleSlide() {
           <AccentStat value="₹6,586 Cr" label="loan volume routed through the IDC channel network" />
           <AccentStat value="₹41–54 Cr" label="monthly PO collection — steady, no seasonal collapse" />
         </div>
-        <Body className="max-w-[560px] text-[12px] leading-[1.5] text-muted-soft md:text-[12px]">
+        <Body className="max-w-[560px] text-[13px] leading-[1.5] text-muted-soft md:text-[12px]">
           Figures from Mar&apos;23–Feb&apos;24 records and IDC extracts —
           204,875 bank-book rows, 53,494 channel rows. Growth of this pace concentrates value
           in operational precision — the gap between volume and infrastructure is where the
@@ -131,10 +131,10 @@ export function ValueAtStakeSlide() {
                 i < 2 ? "border-b border-border" : "",
               ].join(" ")}
             >
-              <p className="text-[28px] font-medium tracking-[-0.03em] text-accent md:text-[36px]">
+              <p className="text-[30px] font-medium tracking-[-0.03em] text-accent md:text-[36px]">
                 {cell.value}
               </p>
-              <p className="mt-[10px] max-w-[340px] text-[13px] leading-[1.45] text-muted md:text-[14px]">
+              <p className="mt-[10px] max-w-[340px] text-[14px] leading-[1.45] text-muted md:text-[14px]">
                 {cell.label}
               </p>
             </div>
@@ -161,7 +161,7 @@ export function ExceptionsSlide() {
         </SlideTitle>
         <div className="grid grid-cols-1 gap-[28px] md:grid-cols-2 md:gap-[40px]">
           <div className="md:pr-[24px] md:border-r md:border-border">
-            <h3 className="text-[18px] font-medium tracking-[-0.02em] md:text-[20px]">
+            <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[20px]">
               A system of record
             </h3>
             <Body className="mt-[12px]">
@@ -171,7 +171,7 @@ export function ExceptionsSlide() {
             </Body>
           </div>
           <div>
-            <h3 className="text-[18px] font-medium tracking-[-0.02em] md:text-[20px]">
+            <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[20px]">
               A system that surfaces
             </h3>
             <Body className="mt-[12px]">
@@ -197,7 +197,7 @@ export function LifecycleSlide() {
         <SlideTitle>The full lifecycle, managed as one continuous object</SlideTitle>
 
         <div>
-          <p className="mb-[12px] text-[11px] uppercase tracking-[0.08em] text-muted-soft">
+          <p className="mb-[12px] text-[12px] uppercase tracking-[0.08em] text-muted-soft md:text-[11px]">
             Sales half
           </p>
           <div className="flex items-stretch overflow-x-auto pb-[4px]">
@@ -211,7 +211,7 @@ export function LifecycleSlide() {
         </div>
 
         <div>
-          <p className="mb-[12px] text-[11px] uppercase tracking-[0.08em] text-accent">
+          <p className="mb-[12px] text-[12px] uppercase tracking-[0.08em] text-accent md:text-[11px]">
             Money half
           </p>
           <div className="flex items-stretch overflow-x-auto pb-[4px]">
