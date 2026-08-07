@@ -33,29 +33,33 @@ export function Slide({
         className
       )}
     >
-      {header ? (
-        <div className="absolute left-[28px] top-[20px] z-10 md:left-[56px] md:top-[28px]">
-          {header}
+      <div className="slide-stage">
+        <div className="slide-canvas">
+          {header ? (
+            <div className="absolute left-[28px] top-[20px] z-10 md:left-[56px] md:top-[28px]">
+              {header}
+            </div>
+          ) : null}
+          <div
+            className={cn(
+              "slide-content slide-shell relative flex h-full min-h-0 flex-1 flex-col justify-center py-[40px] md:py-[56px]",
+              contentClassName
+            )}
+          >
+            {children}
+          </div>
+          {footer ? (
+            <div
+              className={cn(
+                "slide-shell absolute inset-x-0 bottom-[16px] md:bottom-[20px]",
+                dark ? "text-white/35" : "text-muted-soft"
+              )}
+            >
+              {footer}
+            </div>
+          ) : null}
         </div>
-      ) : null}
-      <div
-        className={cn(
-          "slide-content slide-shell flex min-h-0 flex-1 flex-col justify-center py-[40px] md:py-[56px]",
-          contentClassName
-        )}
-      >
-        {children}
       </div>
-      {footer ? (
-        <div
-          className={cn(
-            "slide-shell absolute inset-x-0 bottom-[16px] md:bottom-[20px]",
-            dark ? "text-white/35" : "text-muted-soft"
-          )}
-        >
-          {footer}
-        </div>
-      ) : null}
     </section>
   );
 }

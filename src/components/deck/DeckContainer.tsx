@@ -1,7 +1,19 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  SLIDE_DESIGN_HEIGHT,
+  SLIDE_DESIGN_WIDTH,
+  computeSlideScale,
+} from "@/lib/slide-scale";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import { ScrollIndicator } from "./ScrollIndicator";
 
 interface DeckContainerProps {
@@ -20,6 +32,7 @@ export function DeckContainer({
   const scrollEndTimerRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [slideScale, setSlideScale] = useState(1);
 
   const getSlides = useCallback(() => {
     const container = containerRef.current;
@@ -98,6 +111,33 @@ export function DeckContainer({
     [getSlides, setSlideActiveStates]
   );
 
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateScale = () => {
+      setSlideScale(
+        computeSlideScale(container.clientWidth, container.clientHeight)
+      );
+    };
+
+    updateScale();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateScale();
+      updateActiveSlide();
+    });
+    resizeObserver.observe(container);
+    window.addEventListener("resize", updateScale);
+    window.visualViewport?.addEventListener("resize", updateScale);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateScale);
+      window.visualViewport?.removeEventListener("resize", updateScale);
+    };
+  }, [updateActiveSlide]);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -165,12 +205,19 @@ export function DeckContainer({
   }, [getSlides, scrollToSlide]);
 
   return (
-    <div className="relative flex h-dvh">
+    <div className="deck-force-desktop relative flex h-dvh">
       <div
         ref={containerRef}
         className={cn(
           "deck-scroll flex h-dvh min-w-0 flex-1 flex-col items-center overflow-y-auto overflow-x-hidden snap-y snap-mandatory"
         )}
+        style={
+          {
+            "--slide-design-w": `${SLIDE_DESIGN_WIDTH}px`,
+            "--slide-design-h": `${SLIDE_DESIGN_HEIGHT}px`,
+            "--slide-scale": String(slideScale),
+          } as CSSProperties
+        }
       >
         {children}
       </div>

@@ -14,6 +14,35 @@
   --font-sans: var(--font-neue-haas), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/*
+ * Pitch-deck layout is authored at a fixed design canvas. Under .deck-force-desktop,
+ * md/lg utilities always apply so zoomed / narrow viewports keep the laptop composition
+ * and scale as one unit instead of collapsing to mobile stacks.
+ */
+@custom-variant md {
+  @media (min-width: 768px) {
+    @slot;
+  }
+  :where(.deck-force-desktop) & {
+    @slot;
+  }
+}
+
+@custom-variant lg {
+  @media (min-width: 1024px) {
+    @slot;
+  }
+  :where(.deck-force-desktop) & {
+    @slot;
+  }
+}
+
+:root {
+  --slide-design-w: 1380px;
+  --slide-design-h: 900px;
+  --slide-scale: 1;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -55,6 +84,27 @@ body {
   scroll-snap-stop: always;
 }
 
+/* Viewport stage — centers the fixed design canvas. */
+.slide-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--slide-design-w);
+  height: var(--slide-design-h);
+  display: flex;
+  flex-direction: column;
+  transform: translate3d(-50%, -50%, 0) scale(var(--slide-scale));
+  transform-origin: center center;
+  will-change: transform;
+}
+
 [data-slide] .slide-content {
   opacity: 0.42;
   transform: translate3d(0, 18px, 0) scale(0.992);
@@ -76,6 +126,10 @@ body {
     transform: none;
     transition: none;
   }
+
+  .slide-canvas {
+    will-change: auto;
+  }
 }
 
 ::selection {
@@ -96,4 +150,10 @@ body {
     padding-left: 56px;
     padding-right: 56px;
   }
+}
+
+/* Match authored desktop shell padding whenever the deck forces the design canvas. */
+.deck-force-desktop .slide-shell {
+  padding-left: 56px;
+  padding-right: 56px;
 }
