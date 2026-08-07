@@ -58,8 +58,8 @@ export function ScaleSlide() {
           <AccentStat value="₹6,586 Cr" label="loan volume routed through the IDC channel network" />
           <AccentStat value="₹41–54 Cr" label="monthly PO collection — steady, no seasonal collapse" />
         </div>
-        <Body>
-          Figures from your own Mar&apos;23–Feb&apos;24 MASTER DUMP and IDC extracts —
+        <Body className="max-w-[560px] text-[12px] leading-[1.5] text-muted-soft md:text-[12px]">
+          Figures from Mar&apos;23–Feb&apos;24 records and IDC extracts —
           204,875 bank-book rows, 53,494 channel rows. Growth of this pace concentrates value
           in operational precision — the gap between volume and infrastructure is where the
           next phase of value tends to sit.
@@ -76,22 +76,11 @@ export function MarginSlide() {
         <SlideTitle>
           In a high-volume, thin-margin model, value concentrates after origination
         </SlideTitle>
-        <div className="flex flex-wrap items-start gap-[20px] md:gap-[32px]">
+        <div className="grid grid-cols-2 gap-x-[24px] gap-y-[28px] md:grid-cols-4 md:gap-x-[32px]">
           <AccentStat value="3.30%" label="bank payout rate on ₹17,721 Cr disbursed" />
-          <span className="pt-[8px] text-[28px] text-accent md:pt-[12px] md:text-[36px]" aria-hidden>
-            →
-          </span>
-          <AccentStat
-            value="0.21%"
-            label="IDC channel spread — ₹12.32 Cr kept on ₹6,586 Cr routed"
-          />
-        </div>
-        <div className="flex flex-wrap items-start gap-[20px] md:gap-[32px]">
-          <AccentStat value="−₹4.29 Cr" label="on 4,856 loans where giving exceeded receipt" />
-          <AccentStat
-            value="~76%"
-            label="of the bank book with TDS/NET untracked — net-of-tax blind on most rows"
-          />
+          <AccentStat value="0.21%" label="IDC spread — ₹12.32 Cr kept on ₹6,586 Cr routed" />
+          <AccentStat value="−₹4.29 Cr" label="loss on 4,856 loans where giving exceeded receipt" />
+          <AccentStat value="~76%" label="of the bank book with TDS/NET untracked" />
         </div>
         <Body>
           Distribution is high-revenue, razor-thin spread — every basis point matters. At

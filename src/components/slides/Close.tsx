@@ -21,7 +21,7 @@ export function TwoPhasesSlide() {
           />
         </div>
         <Body className="max-w-[720px]">
-          Phase 2 is validated on Phase 1 results — risk stays contained, and you approve
+          Phase II is validated on Phase I results — risk stays contained, and you approve
           the next stage on the results of the one before it.
         </Body>
       </div>
@@ -50,7 +50,7 @@ export function AlternativesSlide() {
     },
     {
       path: "TwoSpoon",
-      strength: "Distribution-specific; Phase 1 already built to your model",
+      strength: "Distribution-specific; Phase I already built to your model",
       tradeoff: "Newer partner — mitigated by phased, proof-first delivery",
     },
   ];
@@ -126,12 +126,12 @@ export function EvidenceSlide() {
 export function InvestmentSlide() {
   const phases = [
     {
-      title: "Phase 1 — Visibility",
+      title: "Phase I — Visibility",
       body: "Deploy & enable Control Tower + Agent App, data migration, team enablement.",
       timeline: "Timeline · ~6 weeks to rollout (built)",
     },
     {
-      title: "Phase 2 — Value capture",
+      title: "Phase II — Value capture",
       body: "Modules sequenced: Document AI · Lender routing · Reconciliation · Partner analytics · Decision support · Credit Graph. Model matures with ~9 months of live cases.",
       timeline: "Timeline · 3–5 weeks per module; Credit Graph ongoing",
     },
@@ -154,7 +154,7 @@ export function InvestmentSlide() {
         </div>
         <Body className="max-w-[760px] text-[13px]">
           Draft figures — Kiran to replace with real numbers before presenting. You approve
-          Phase 2 on the results of Phase 1, which keeps risk contained throughout.
+          Phase II on the results of Phase I, which keeps risk contained throughout.
         </Body>
       </div>
     </Slide>
@@ -221,7 +221,7 @@ export function InternalCaseSlide() {
               A low-risk path
             </h3>
             <Body className="mt-[12px]">
-              A phased structure with Phase 1 already live and validated — a well-evidenced
+              A phased structure with Phase I already live and validated — a well-evidenced
               recommendation to put in front of the group.
             </Body>
           </div>

@@ -6,7 +6,7 @@ export function Phase1ExistsSlide() {
     <Slide id="phase-1-exists">
       <div className="flex flex-col gap-[36px] md:gap-[44px]">
         <SlideTitle>
-          Phase 1 establishes a single, real-time view of the business — and it already
+          Phase I establishes a single, real-time view of the business — and it already
           exists
         </SlideTitle>
         <div className="grid grid-cols-1 gap-[28px] md:grid-cols-2 md:gap-[40px]">
@@ -70,6 +70,36 @@ export function LeadershipViewSlide() {
         height={2122}
         className="pointer-events-none absolute right-[-18%] bottom-[-8%] w-[82%] max-w-none translate-y-[30%] md:right-[-16%] md:bottom-[-6%] md:w-[78%]"
         sizes="70vw"
+        priority
+      />
+    </Slide>
+  );
+}
+
+export function AgentAppViewSlide() {
+  return (
+    <Slide
+      id="agent-app-view"
+      contentClassName="relative !max-w-none justify-center px-0 py-0"
+    >
+      <div className="relative z-10 w-full max-w-[340px] pl-[28px] md:max-w-[650px] md:pl-[56px] md:pr-[24px]">
+        <SlideTitle className="max-w-none">
+          Partners work the field from a phone. Cases, queues, and next actions in one app
+        </SlideTitle>
+        <Body className="mt-[16px] max-w-[280px] text-[13px] md:max-w-[560px] md:text-[14px]">
+          New lead capture, active cases, inbox, and payouts at a glance. Needs Attention
+          surfaces overdue work with owner, age, and value — so the next step is obvious
+          before the case goes cold. Structured intake at first contact flows straight into
+          the Control Tower.
+        </Body>
+      </div>
+      <Image
+        src="/images/agentapp.png"
+        alt="Aadifidelis Agent App — field partner home screen"
+        width={501}
+        height={1024}
+        className="pointer-events-none absolute top-1/2 right-[8%] w-[42%] max-w-[280px] -translate-y-1/2 drop-shadow-[0_24px_48px_rgba(0,0,0,0.18)] md:right-[14%] md:w-[30%] md:max-w-[300px]"
+        sizes="30vw"
         priority
       />
     </Slide>
@@ -227,11 +257,12 @@ export function Phase1CloseSlide() {
     <Slide id="phase-1-close">
       <div className="flex max-w-[640px] flex-col gap-[20px] md:gap-[24px]">
         <SlideTitle>
-          Phase 1 delivers a complete, real-time view of the business.
+          Phase I delivers a complete, real-time view of the business. <br />Phase II expands it
+          even further.
         </SlideTitle>
         <Body className="text-[15px] md:text-[16px]">
-          The foundation everything else builds on — and what makes the next phase,
-          improving the numbers you can now see, possible.
+          Visibility is the foundation — Phase II uses it to improve the numbers you can now
+          see: faster turnaround, fuller collection, sharper routing.
         </Body>
       </div>
     </Slide>

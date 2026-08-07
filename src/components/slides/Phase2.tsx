@@ -182,7 +182,7 @@ export function DataAssetSlide() {
               What accrues
             </h3>
             <Body className="mt-[12px]">
-              Phase 2 captures lender-outcome data across 121 lenders, 83 products, and
+              Phase II captures lender-outcome data across 121 lenders, 83 products, and
               205k bank-book rows — who paid, how quickly, at what rate, and where the short
               and over-receives concentrate.
             </Body>
@@ -271,7 +271,7 @@ export function Phase2CloseSlide() {
     <Slide id="phase-2-close">
       <div className="flex max-w-[640px] flex-col gap-[20px] md:gap-[24px]">
         <SlideTitle>
-          Phase 2 improves margin on existing volume — and compounds into decisioning
+          Phase II improves margin on existing volume — and compounds into decisioning
           advantage.
         </SlideTitle>
         <Body className="text-[15px] md:text-[16px]">
