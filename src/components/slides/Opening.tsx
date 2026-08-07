@@ -53,15 +53,16 @@ export function ScaleSlide() {
           A business that has scaled faster than most infrastructure can keep pace with
         </SlideTitle>
         <div className="grid grid-cols-2 gap-x-[24px] gap-y-[28px] md:grid-cols-4 md:gap-x-[32px]">
-          <AccentStat value="₹36,800 Cr" label="in loan leads originated, FY26" />
-          <AccentStat value="9,400+" label="active distribution partners" />
-          <AccentStat value="100+" label="lenders on the panel" />
-          <AccentStat value="24" label="states of coverage" />
+          <AccentStat value="₹17,721 Cr" label="disbursed across the bank book, Mar'23–Feb'24" />
+          <AccentStat value="₹584 Cr" label="payout received from 121 lenders, 83 products" />
+          <AccentStat value="₹6,586 Cr" label="loan volume routed through the IDC channel network" />
+          <AccentStat value="₹41–54 Cr" label="monthly PO collection — steady, no seasonal collapse" />
         </div>
         <Body>
-          Growth of this pace is rare — and it concentrates value in operational precision.
-          The gap between volume and infrastructure isn&apos;t a problem with how the
-          business is run; it&apos;s where the next phase of value tends to sit.
+          Figures from your own Mar&apos;23–Feb&apos;24 MASTER DUMP and IDC extracts —
+          204,875 bank-book rows, 53,494 channel rows. Growth of this pace concentrates value
+          in operational precision — the gap between volume and infrastructure is where the
+          next phase of value tends to sit.
         </Body>
       </div>
     </Slide>
@@ -76,16 +77,25 @@ export function MarginSlide() {
           In a high-volume, thin-margin model, value concentrates after origination
         </SlideTitle>
         <div className="flex flex-wrap items-start gap-[20px] md:gap-[32px]">
-          <AccentStat value="15.8%" label="BLS distribution margin, early FY26" />
+          <AccentStat value="3.30%" label="bank payout rate on ₹17,721 Cr disbursed" />
           <span className="pt-[8px] text-[28px] text-accent md:pt-[12px] md:text-[36px]" aria-hidden>
             →
           </span>
-          <AccentStat value="8.7%" label="consolidated margin as volume scaled" />
+          <AccentStat
+            value="0.21%"
+            label="IDC channel spread — ₹12.32 Cr kept on ₹6,586 Cr routed"
+          />
+        </div>
+        <div className="flex flex-wrap items-start gap-[20px] md:gap-[32px]">
+          <AccentStat value="−₹4.29 Cr" label="on 4,856 loans where giving exceeded receipt" />
+          <AccentStat
+            value="~76%"
+            label="of the bank book with TDS/NET untracked — net-of-tax blind on most rows"
+          />
         </div>
         <Body>
-          Distribution is high-revenue, low-margin — and margin compresses as volume grows.
-          That&apos;s the economics of the category, not a failing. At this scale, the
-          incremental margin is captured in the precision of everything{" "}
+          Distribution is high-revenue, razor-thin spread — every basis point matters. At
+          this scale, the incremental margin is captured in the precision of everything{" "}
           <em className="italic">after</em> origination: how fast cases move, how completely
           commissions are collected, how tightly the money reconciles.
         </Body>
@@ -97,21 +107,24 @@ export function MarginSlide() {
 export function ValueAtStakeSlide() {
   const cells = [
     {
-      value: "~₹76.6L",
-      label: "earned commission outstanding — awaiting matching, not lost",
-    },
-    {
-      value: "₹1.2L / ₹13.2L",
+      value: "₹22 Cr",
       label:
-        "received against expected this period; receipts arrive faster than manual matching clears",
+        "already paid to sub-partners on loans the banks haven't settled — a cash hole, not lost margin",
     },
     {
-      value: "30 cases",
-      label: "past SLA, awaiting a next step",
+      value: "~₹25.1 Cr",
+      label:
+        "defensible receivable to chase — ₹22.72 Cr unreceived + ₹2.38 Cr short-received",
     },
     {
-      value: "₹3.5 Cr",
-      label: "a single high-value case still awaiting an owner",
+      value: "5,796",
+      label:
+        "claimed loans with LAN and no bank receipt (₹22.72 Cr) — your ledger already flags NOT FOUND, DUMP PENDING, INVOICE PENDING",
+    },
+    {
+      value: "₹76.1 Cr",
+      label:
+        "unverifiable — 17,912 rows with no LAN to match; a data-hygiene problem before it's a collection problem",
     },
   ];
 
@@ -122,7 +135,7 @@ export function ValueAtStakeSlide() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           {cells.map((cell, i) => (
             <div
-              key={cell.value}
+              key={`${cell.value}-${cell.label.slice(0, 24)}`}
               className={[
                 "py-[20px] md:py-[28px]",
                 i % 2 === 0 ? "md:pr-[32px]" : "md:pl-[32px] md:border-l md:border-border",
@@ -139,9 +152,10 @@ export function ValueAtStakeSlide() {
           ))}
         </div>
         <Body className="max-w-[720px]">
-          The pattern every high-growth distributor hits at a certain volume — volume
-          outpacing manual process, not effort or capability. The value at stake is concrete,
-          and it is addressable.
+          That ₹22 Cr cash exposure alone dwarfs the entire ₹12.3 Cr channel margin for the
+          period. Most of the unreceived book is recent (Dec&apos;23 ₹4.1 Cr, Nov&apos;23
+          ₹3.5 Cr) — still in-pipeline — but the Mar–Aug&apos;23 aged tail of ~₹9 Cr is where
+          write-off risk concentrates. Concrete, addressable, on your own ledgers.
         </Body>
       </div>
     </Slide>
@@ -162,9 +176,9 @@ export function ExceptionsSlide() {
               A system of record
             </h3>
             <Body className="mt-[12px]">
-              Spreadsheets and shared trackers are excellent at recording what happened.
-              It&apos;s what most distributors scale on, and it works — until the volume of
-              what needs attention outgrows the ability to find it by hand.
+              Your books already know the problem — remarks like NOT FOUND (262), DUMP
+              PENDING (32), INVOICE PENDING (15). Spreadsheets record what happened. They
+              don&apos;t assemble who owns the next step, or how old the open leg is.
             </Body>
           </div>
           <div>
@@ -173,9 +187,9 @@ export function ExceptionsSlide() {
             </h3>
             <Body className="mt-[12px]">
               What a business of your volume benefits from next is infrastructure that also
-              acts: it surfaces the stalled case, the commission that&apos;s due, the receipt
-              that hasn&apos;t matched — and routes each to an owner with a clock. It lets
-              judgment reach every case, not only the ones that happen to surface.
+              acts: it surfaces the stalled case, the ₹22 Cr of giving already paid with no
+              bank receipt, the short payment, the missing LAN — and routes each to an owner
+              with a clock.
             </Body>
           </div>
         </div>

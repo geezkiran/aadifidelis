@@ -211,8 +211,9 @@ export function InternalCaseSlide() {
               A quantified value case
             </h3>
             <Body className="mt-[12px]">
-              A recoverable, quantified opportunity in outstanding commission and
-              approval-rate headroom — concrete numbers, on your own data.
+              ~₹25.1 Cr defensible receivable to chase, ₹22 Cr already paid out on unsettled
+              loans, and ₹76.1 Cr sitting dark for lack of a LAN — concrete numbers, on your
+              own data.
             </Body>
           </div>
           <div>
@@ -239,9 +240,7 @@ export function ClosingSlide() {
           <br />
           The opportunity now is the margin scale creates.
         </h2>
-        <Body className="text-[15px] md:text-[16px]">
-          Recommended next step: confirm Phase 1 rollout and scope Phase 2, module one.
-        </Body>
+       
       </div>
     </Slide>
   );

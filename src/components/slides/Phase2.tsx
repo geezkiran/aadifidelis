@@ -7,25 +7,6 @@ import {
   SlideTitle,
 } from "@/components/shared";
 
-export function Phase2DividerSlide() {
-  return (
-    <Slide id="phase-2-divider" variant="dark">
-      <div className="mt-auto max-w-[560px] pb-[24px]">
-        <p className="text-[72px] font-medium leading-none tracking-[-0.04em] text-accent md:text-[96px]">
-          04
-        </p>
-        <h2 className="mt-[12px] text-[28px] font-medium leading-[1.2] tracking-[-0.03em] md:text-[36px]">
-          Phase 2 — Value capture
-        </h2>
-        <p className="mt-[14px] max-w-[420px] text-[15px] leading-[1.5] text-white/75 md:text-[16px]">
-          Margin on existing volume — then the data asset that compounds into predictive
-          decisioning.
-        </p>
-      </div>
-    </Slide>
-  );
-}
-
 export function DocumentAISlide() {
   return (
     <Slide id="document-ai">
@@ -90,24 +71,26 @@ export function ReconciliationSlide() {
           Automated reconciliation converts outstanding commission into collected commission
         </SlideTitle>
         <Body className="max-w-[760px]">
-          Outcome: the ~₹76.6L outstanding becomes a tracked, collectible list — not a
-          manual search. Mechanism: lender MIS and bank receipts auto-matched on six keys;
-          exceptions routed with owners and deadlines.
+          Outcome: the ~₹25.1 Cr defensible receivable — and the ₹22 Cr already paid down the
+          chain — becomes a tracked, collectible list, not a manual search. Mechanism: lender
+          MIS and bank receipts auto-matched on LAN and six keys; exceptions routed with
+          owners and deadlines.
         </Body>
         <div className="flex items-stretch overflow-x-auto pb-[4px]">
           <FlowNode label="Lender MIS" sub="+ bank receipt feed" />
           <FlowArrow accent />
           <FlowNode
             label="Six-key match"
-            sub="application ID · PAN · amount · disbursal date · product · case ID"
+            sub="LAN · application ID · PAN · amount · disbursal date · product"
           />
           <FlowArrow accent />
           <FlowNode label="Auto-cleared" accent />
         </div>
         <Body className="max-w-[760px]">
-          Anything that doesn&apos;t match — a rate difference, a short payment, a duplicate,
-          a missing invoice reference — becomes an exception with a named owner and a due
-          date.
+          Anything that doesn&apos;t match — a ₹2.38 Cr short-receive, a +₹3.60 Cr
+          over-receive, a missing LAN, a NOT FOUND remark — becomes an exception with a named
+          owner and a due date. Backfilling LANs reclassifies the ₹76.1 Cr dark bucket into
+          chaseable work.
         </Body>
       </div>
     </Slide>
@@ -125,8 +108,8 @@ export function PartnerAnalyticsSlide() {
               Concentrate the support
             </h3>
             <Body className="mt-[12px]">
-              Across 9,400+ partners, contribution varies naturally. Continuous scoring —
-              approval rate, document quality, duplicates, complaints — lets relationship
+              One channel alone — RAM MUMBAI — is ~32% of IDC rows. Continuous scoring —
+              approval rate, document quality, margin per loan, duplicates — lets relationship
               teams concentrate support where it returns most, and helps newer partners
               improve with clear signals.
             </Body>
@@ -136,9 +119,9 @@ export function PartnerAnalyticsSlide() {
               Surface genuine risk early
             </h3>
             <Body className="mt-[12px]">
-              The same scoring surfaces real risk indicators — an unusual duplicate pattern,
-              or a bank-detail change just before a payout — early, as a safeguard rather
-              than an accusation.
+              The same scoring surfaces real risk — 4,856 loss-making loans (−₹4.29 Cr) where
+              giving exceeded receipt, unusual duplicate patterns, or a bank-detail change
+              just before a payout — early, as a safeguard rather than an accusation.
             </Body>
           </div>
         </div>
@@ -164,10 +147,11 @@ export function PredictivePromptsSlide() {
           </div>
           <div>
             <h3 className="text-[17px] font-medium tracking-[-0.02em] md:text-[18px]">
-              SLA-risk prediction
+              Aging & write-off risk
             </h3>
             <Body className="mt-[10px]">
-              A warning when a case is approaching its limit — before the delay, not after.
+              Surfaces the aged tail — like the ~₹9 Cr Mar–Aug&apos;23 unreceived — before it
+              becomes a write-off, not after.
             </Body>
           </div>
           <div>
@@ -198,9 +182,9 @@ export function DataAssetSlide() {
               What accrues
             </h3>
             <Body className="mt-[12px]">
-              Phase 2 captures lender-outcome data across 100+ lenders and millions of
-              profiles — who approved, how quickly, at what price, and why cases were
-              declined.
+              Phase 2 captures lender-outcome data across 121 lenders, 83 products, and
+              205k bank-book rows — who paid, how quickly, at what rate, and where the short
+              and over-receives concentrate.
             </Body>
           </div>
           <div>
@@ -291,10 +275,10 @@ export function Phase2CloseSlide() {
           advantage.
         </SlideTitle>
         <Body className="text-[15px] md:text-[16px]">
-          Higher approval through routing, faster turnaround through automation, more
-          complete commission collection, better-directed partner support — plus a Credit
-          Graph that learns from every case. All on the business you already run. No
-          additional origination required.
+          Higher approval through routing, faster turnaround through automation, recovery of
+          the ~₹25.1 Cr chaseable book and the ₹22 Cr cash already out, better-directed
+          partner support — plus a Credit Graph that learns from every case. All on the
+          business you already run. No additional origination required.
         </Body>
       </div>
     </Slide>

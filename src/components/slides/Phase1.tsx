@@ -1,24 +1,6 @@
 import Image from "next/image";
 import { Body, Slide, SlideTitle } from "@/components/shared";
 
-export function Phase1DividerSlide() {
-  return (
-    <Slide id="phase-1-divider" variant="dark">
-      <div className="mt-auto max-w-[560px] pb-[24px]">
-        <p className="text-[72px] font-medium leading-none tracking-[-0.04em] text-accent md:text-[96px]">
-          03
-        </p>
-        <h2 className="mt-[12px] text-[28px] font-medium leading-[1.2] tracking-[-0.03em] md:text-[36px]">
-          Phase 1 — Visibility
-        </h2>
-        <p className="mt-[14px] max-w-[420px] text-[15px] leading-[1.5] text-white/75 md:text-[16px]">
-          One source of truth, lead to payout. Built and running today — not a concept.
-        </p>
-      </div>
-    </Slide>
-  );
-}
-
 export function Phase1ExistsSlide() {
   return (
     <Slide id="phase-1-exists">
@@ -180,7 +162,7 @@ export function Phase1FeaturesSlide() {
           </div>
 
           {/* Field capture */}
-          <div className="flex flex-col justify-between gap-[12px] rounded-[10px] bg-surface p-[16px] md:col-span-3 md:min-h-[160px] md:p-[20px]">
+          <div className="flex flex-col justify-between gap-[12px] rounded-[10px] bg-surface p-[16px] md:col-span-2 md:min-h-[160px] md:p-[20px]">
             <div>
               <p className="text-[11px] tracking-[0.04em] text-accent uppercase md:text-[12px]">
                 Field capture
@@ -194,22 +176,22 @@ export function Phase1FeaturesSlide() {
               </Body>
             </div>
             <p className="text-[26px] font-medium tracking-[-0.03em] text-accent md:text-[30px]">
-              9,400+
+              17,912
               <span className="ml-[8px] text-[12px] font-normal tracking-normal text-muted md:text-[13px]">
-                partners, cleaner intake
+                rows, ₹76.1 Cr — unverifiable without a LAN at intake
               </span>
             </p>
           </div>
 
           {/* Item context */}
-          <div className="flex flex-col rounded-[10px] bg-surface p-[16px] md:col-span-2 md:p-[20px]">
+          <div className="flex h-full flex-col rounded-[10px] bg-surface p-[16px] md:col-span-2 md:p-[20px]">
             <p className="text-[11px] tracking-[0.04em] text-accent uppercase md:text-[12px]">
               On every item
             </p>
             <h3 className="mt-[6px] text-[15px] font-medium tracking-[-0.02em] md:text-[17px]">
               Full context, no hunting
             </h3>
-            <div className="mt-[12px] flex flex-wrap gap-[6px]">
+            <div className="mt-auto flex flex-wrap gap-[6px] pt-[12px]">
               {itemSignals.map((signal) => (
                 <span
                   key={signal}
@@ -222,12 +204,16 @@ export function Phase1FeaturesSlide() {
           </div>
 
           {/* Result */}
-          <div className="flex flex-col justify-end rounded-[10px] bg-surface p-[16px] md:col-span-1 md:p-[20px]">
+          <div className="flex h-full flex-col rounded-[10px] bg-surface p-[16px] md:col-span-2 md:p-[20px]">
             <p className="text-[11px] tracking-[0.04em] text-accent uppercase md:text-[12px]">
               Result
             </p>
-            <h3 className="mt-[6px] text-[13px] font-medium tracking-[-0.02em] md:text-[14px]">
-              Less lost. Less re-entered. Faster handoff.
+            <h3 className="mt-[6px] text-[15px] font-medium tracking-[-0.02em] md:text-[17px]">
+              Less lost.
+              <br />
+              Less re-entered.
+              <br />
+              Faster handoff.
             </h3>
           </div>
         </div>
