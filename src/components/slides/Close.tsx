@@ -1,33 +1,8 @@
 import {
   Body,
-  FlowArrow,
-  FlowNode,
   Slide,
   SlideTitle,
 } from "@/components/shared";
-
-export function TwoPhasesSlide() {
-  return (
-    <Slide id="two-phases">
-      <div className="flex flex-col gap-[32px] md:gap-[40px]">
-        <SlideTitle>Two phases, each proven before the next is commissioned</SlideTitle>
-        <div className="flex items-stretch overflow-x-auto pb-[4px]">
-          <FlowNode label="1 · Visibility" sub="the single view · built" />
-          <FlowArrow accent />
-          <FlowNode
-            label="2 · Value capture"
-            sub="margin + Credit Graph → decisioning"
-            accent
-          />
-        </div>
-        <Body className="max-w-[720px]">
-          Phase II is validated on Phase I results — risk stays contained, and you approve
-          the next stage on the results of the one before it.
-        </Body>
-      </div>
-    </Slide>
-  );
-}
 
 export function AlternativesSlide() {
   const rows = [
@@ -140,7 +115,7 @@ export function InvestmentSlide() {
   return (
     <Slide id="investment">
       <div className="flex flex-col gap-[28px] md:gap-[32px]">
-        <SlideTitle>Investment, scope & timeline</SlideTitle>
+        <SlideTitle>Scope & timeline</SlideTitle>
         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[24px]">
           {phases.map((phase) => (
             <div key={phase.title} className="border-t border-border pt-[16px]">
@@ -152,10 +127,7 @@ export function InvestmentSlide() {
             </div>
           ))}
         </div>
-        <Body className="max-w-[760px] text-[13px]">
-          Draft figures — Kiran to replace with real numbers before presenting. You approve
-          Phase II on the results of Phase I, which keeps risk contained throughout.
-        </Body>
+        
       </div>
     </Slide>
   );

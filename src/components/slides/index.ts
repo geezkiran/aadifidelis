@@ -31,7 +31,6 @@ import {
   EvidenceSlide,
   InternalCaseSlide,
   InvestmentSlide,
-  TwoPhasesSlide,
 } from "./Close";
 
 export const slides = [
@@ -55,7 +54,6 @@ export const slides = [
   CreditGraphSlide,
   StrategicPositionSlide,
   Phase2CloseSlide,
-  TwoPhasesSlide,
   AlternativesSlide,
   EvidenceSlide,
   InvestmentSlide,
@@ -85,10 +83,9 @@ export const slideLabels = [
   "Credit Graph",
   "Strategic position",
   "Phase II close",
-  "Two phases",
   "Alternatives",
   "Evidence",
-  "Investment",
+  "Scope & timeline",
   "Considerations",
   "Internal case",
   "Closing",
