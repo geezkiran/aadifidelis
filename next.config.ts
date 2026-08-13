@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "framerusercontent.com",
         pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.aadifidelissolutions.com",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
 };

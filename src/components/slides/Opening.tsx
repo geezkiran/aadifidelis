@@ -28,11 +28,11 @@ export function TitleSlide() {
       <div className="flex flex-col items-center gap-[24px] md:gap-[36px]">
         <h1>
           <Image
-            src="/images/aadifidelis-wordmark.png"
+            src="https://www.aadifidelissolutions.com/wp-content/uploads/2026/06/AADI-Logo-300X200-White.png"
             alt="Aadifidelis"
-            width={793}
-            height={115}
-            className="h-auto w-[220px] md:w-[400px]"
+            width={300}
+            height={200}
+            className="h-auto w-[160px] invert md:w-[280px]"
             priority
           />
         </h1>
