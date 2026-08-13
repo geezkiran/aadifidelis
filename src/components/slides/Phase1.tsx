@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Body, Slide, SlideTitle } from "@/components/shared";
+import { cn } from "@/lib/utils";
 
 export function Phase1ExistsSlide() {
   return (
@@ -75,33 +76,103 @@ export function LeadershipViewSlide() {
   );
 }
 
-export function AgentAppViewSlide() {
+export function AgentAppViewSlide({
+  id = "agent-app-view",
+  image = "/images/newlead.png",
+  alt = "Aadifidelis Agent App — new lead capture",
+  title = "Partners capture a new lead in three steps, right from a selfie",
+  body = "Identity, employment, and requirement — guided capture with a live selfie and PAN/Aadhaar on the spot. Structured intake at first contact flows straight into the Control Tower.",
+  imageSide = "right",
+}: {
+  id?: string;
+  image?: string;
+  alt?: string;
+  title?: string;
+  body?: string;
+  imageSide?: "left" | "right";
+} = {}) {
+  const isLeft = imageSide === "left";
   return (
     <Slide
-      id="agent-app-view"
+      id={id}
       contentClassName="relative !max-w-none justify-start px-0 py-0 md:justify-center"
     >
-      <div className="relative z-10 w-full max-w-[420px] px-[20px] pt-[36px] md:max-w-[650px] md:px-0 md:pl-[56px] md:pr-[24px] md:pt-0">
-        <SlideTitle className="max-w-none">
-          Partners work the field from a phone. Cases, queues, and next actions in one app
-        </SlideTitle>
+      <div
+        className={cn(
+          "relative z-10 w-full max-w-[420px] px-[20px] pt-[36px] md:max-w-[650px] md:px-0 md:pt-0",
+          isLeft
+            ? "md:ml-auto md:pr-[56px] md:pl-[24px]"
+            : "md:pl-[56px] md:pr-[24px]"
+        )}
+      >
+        <SlideTitle className="max-w-none">{title}</SlideTitle>
         <Body className="mt-[14px] max-w-[340px] text-[15px] md:mt-[16px] md:max-w-[560px] md:text-[14px]">
-          New lead capture, active cases, inbox, and payouts at a glance. Needs Attention
-          surfaces overdue work with owner, age, and value — so the next step is obvious
-          before the case goes cold. Structured intake at first contact flows straight into
-          the Control Tower.
+          {body}
         </Body>
       </div>
       <Image
-        src="/images/agentapp.png"
-        alt="Aadifidelis Agent App — field partner home screen"
+        src={image}
+        alt={alt}
         width={501}
         height={1024}
-        className="pointer-events-none relative mx-auto mt-[28px] w-[42%] max-w-[180px] drop-shadow-[0_24px_48px_rgba(0,0,0,0.18)] md:absolute md:top-1/2 md:right-[14%] md:mx-0 md:mt-0 md:w-[30%] md:max-w-[300px] md:-translate-y-1/2"
+        className={cn(
+          "pointer-events-none relative mx-auto mt-[28px] w-[42%] max-w-[180px] drop-shadow-[0_24px_48px_rgba(0,0,0,0.18)] md:absolute md:top-1/2 md:mx-0 md:mt-0 md:w-[30%] md:max-w-[300px] md:-translate-y-1/2",
+          isLeft ? "md:left-[14%]" : "md:right-[14%]"
+        )}
         sizes="30vw"
         priority
       />
     </Slide>
+  );
+}
+
+export function AgentAppViewSlide2() {
+  return (
+    <AgentAppViewSlide
+      id="agent-app-view-2"
+      image="/images/cases.png"
+      alt="Aadifidelis Agent App — cases"
+      title="Every case a partner owns, searchable and filterable in one list"
+      body="Case ID, customer, product, and status at a glance — filter by Lender Processing, Documents Pending, or Sanctioned. No calling the branch to check where a file stands."
+      imageSide="left"
+    />
+  );
+}
+
+export function AgentAppViewSlide3() {
+  return (
+    <AgentAppViewSlide
+      id="agent-app-view-3"
+      image="/images/casedetails.png"
+      alt="Aadifidelis Agent App — case details"
+      title="Open a case and the next action is already decided"
+      body="Status, amount requested, estimated payout, and document completeness in one screen — with the overdue next action surfaced up top, not buried in a timeline."
+    />
+  );
+}
+
+export function AgentAppViewSlide4() {
+  return (
+    <AgentAppViewSlide
+      id="agent-app-view-4"
+      image="/images/inbox.png"
+      alt="Aadifidelis Agent App — inbox"
+      title="Lender queries land as an inbox, not a lost email"
+      body="Rejected files, pending documents, credit manager queries — each with an SLA that lapses if ignored. Reply, upload, or open the case without leaving the thread."
+      imageSide="left"
+    />
+  );
+}
+
+export function AgentAppViewSlide5() {
+  return (
+    <AgentAppViewSlide
+      id="agent-app-view-5"
+      image="/images/payout.png"
+      alt="Aadifidelis Agent App — payout"
+      title="Commission is visible end to end — from lead to earned"
+      body="Outstanding and lifetime payout, TDS rate, and a funnel from leads to disbursed to earned. A per-case ledger settles any dispute about what's owed."
+    />
   );
 }
 

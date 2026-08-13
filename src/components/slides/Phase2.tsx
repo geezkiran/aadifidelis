@@ -227,7 +227,7 @@ export function Phase2CloseSlide() {
     <Slide id="phase-2-close">
       <div className="flex max-w-[640px] flex-col gap-[20px] md:gap-[24px]">
         <SlideTitle>
-          Phase II improves margin on existing volume — and compounds into decisioning
+          Phase II improves margin on existing volume and compounds into decisioning
           advantage.
         </SlideTitle>
         <Body className="text-[16px] md:text-[16px]">
