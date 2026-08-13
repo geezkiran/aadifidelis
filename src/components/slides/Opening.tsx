@@ -56,37 +56,13 @@ export function ScaleSlide() {
           <AccentStat value="₹17,721 Cr" label="disbursed across the bank book, Mar'23–Feb'24" />
           <AccentStat value="₹584 Cr" label="payout received from 121 lenders, 83 products" />
           <AccentStat value="₹6,586 Cr" label="loan volume routed through the IDC channel network" />
-          <AccentStat value="₹41–54 Cr" label="monthly PO collection — steady, no seasonal collapse" />
+          <AccentStat value="3.30%" label="bank payout rate on ₹17,721 Cr disbursed" />
         </div>
         <Body className="max-w-[560px] text-[13px] leading-[1.5] text-muted-soft md:text-[12px]">
           Figures from Mar&apos;23–Feb&apos;24 records and IDC extracts —
           204,875 bank-book rows, 53,494 channel rows. Growth of this pace concentrates value
           in operational precision — the gap between volume and infrastructure is where the
           next phase of value tends to sit.
-        </Body>
-      </div>
-    </Slide>
-  );
-}
-
-export function MarginSlide() {
-  return (
-    <Slide id="margin">
-      <div className="flex flex-col gap-[36px] md:gap-[48px]">
-        <SlideTitle>
-          In a high-volume, thin-margin model, value concentrates after origination
-        </SlideTitle>
-        <div className="grid grid-cols-2 gap-x-[24px] gap-y-[28px] md:grid-cols-4 md:gap-x-[32px]">
-          <AccentStat value="3.30%" label="bank payout rate on ₹17,721 Cr disbursed" />
-          <AccentStat value="0.21%" label="IDC spread — ₹12.32 Cr kept on ₹6,586 Cr routed" />
-          <AccentStat value="−₹4.29 Cr" label="loss on 4,856 loans where giving exceeded receipt" />
-          <AccentStat value="~76%" label="of the bank book with TDS/NET untracked" />
-        </div>
-        <Body>
-          Distribution is high-revenue, razor-thin spread — every basis point matters. At
-          this scale, the incremental margin is captured in the precision of everything{" "}
-          <em className="italic">after</em> origination: how fast cases move, how completely
-          commissions are collected, how tightly the money reconciles.
         </Body>
       </div>
     </Slide>

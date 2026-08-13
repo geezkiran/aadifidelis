@@ -1,7 +1,6 @@
 import {
   ExceptionsSlide,
   LifecycleSlide,
-  MarginSlide,
   ScaleSlide,
   TitleSlide,
   ValueAtStakeSlide,
@@ -23,7 +22,6 @@ import { ClosingSlide, ConsiderationsSlide } from "./Close";
 export const slides = [
   TitleSlide,
   ScaleSlide,
-  MarginSlide,
   ValueAtStakeSlide,
   ExceptionsSlide,
   LifecycleSlide,
@@ -45,7 +43,6 @@ export const slides = [
 export const slideLabels = [
   "Title",
   "Scale",
-  "Margin",
   "Value at stake",
   "Exceptions",
   "Lifecycle",
